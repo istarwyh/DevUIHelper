@@ -1,11 +1,13 @@
 {
-	"name": "devui",
-	"displayName": "AutoDevui",
-	"description": "AI & Devui",
+	"name": "devuihelper",
+	"displayName": "DevUI组件助手",
+	"description": "api提示与补全,悬浮提示",
+	"keywords": ["devui", "plugin", "helper"],
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
+	"icon":"./images/icon.png",
 	"categories": [
 		"Other"
 	],
@@ -78,5 +80,9 @@
 		"tslint": "^5.20.0",
 		"typescript": "^3.6.4",
 		"vscode-test": "^1.3.0"
-	}
+	}, 
+	"repository": {
+        "type": "git",
+        "url": "https://github.com/istarwyh/DevUIHelper"
+    }
 }
