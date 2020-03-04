@@ -1,0 +1,31 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = {
+    options: '|`array`|[]|可选,和searchFn互斥，两者必须有且只有一个。下拉选项资源`string``object`|',
+    isSearch: '|`boolean`|false|可选,是否支持过滤搜索|',
+    scrollHight: '|`string`|\'300px\'|可选,下拉菜单高度,建议使用px作为高度单位|',
+    hightLightItemClass: '|`string`|\'bg-grey\'|可选,下拉高亮css|',
+    filterKey: '|`string`|无|当传入资源options类型为object时,必选,针对传入资源options的每项对应字段做过滤操作|',
+    multiple: '|`boolean`|false|可选,是否支持多选|',
+    isSelectAll: '|`boolean`|false|可选,是否显示全选|',
+    readonly: '|`boolean`|true|可选,是否可以输入|',
+    size: '|`string`|\'\'|可选,下拉选框尺寸,有三种选择`\'lg\'`,`\'\'`,`\'sm\'`|',
+    disabled: '|`boolean`|false|可选,是否禁用下拉框|',
+    placeholder: '|`string`|\'PleaseInputkeywords\'|可选,输入框的placeholder|',
+    searchFn: '|`function`|无|可选,搜索函数,当需要自定义下拉选择过滤规则时可以使用|',
+    valueParser: '|`function`|无|可选,决定选择框文字如何显示,默认显示filterKey字段或者本身的值|',
+    formatter: '|`function`|无|可选,决定下拉框每项文字如何显示,默认显示filterKey字段或者本身的值|',
+    direnction: '|`string`|\'\'|可选,下拉选框尺寸,有三种选择`\'up\'`,`\'down\'`,`\'auto\'`|',
+    overview: '|`string`|\'border\'|可选,决定选择框样式显示,默认有边框`\'border\'`,`\'underlined\'`|',
+    enableLazyLoad: '|`boolean`|false|可选,是否支持数据懒加载，用于滚动到底部时动态请求数据|',
+    extraConfig: '|`object`|不适用|可选,可输入配置项参考示例|',
+    optionDisabledKey: '|`string`|\'\'|可选,禁用单个选项;当传入资源options类型为`objectObj`,比如设置为`\'disabled\'`,则当对象的disable属性为true时,该选项将禁用;当设置为\'\'时不禁用单个选项|',
+    optionImmutableKey: '|`string`|\'\'|可选,禁用单个选项;当传入资源options类型为`objectObj`,比如设置为`\'immutable\'`,则当对象的immutable属性为true时,该选项将禁被禁止变更;当设置为\'\'时不生效|',
+    noResultItemTemplate: '|`TemplateRef`|无|可选,没有匹配项的展示结果|',
+    keepMultipleOrder: '|`string`|\'user-select\'|可选,`\'user-select\'\|\'origin\'`,配置多选的时候是否维持原数组排序还是用户选择的顺序排序,默认是用户顺序|',
+    customViewTemplate: '|`TemplateRef`|无|可选,支持自定义区域显示内容定制|',
+    appendToBody: '|`boolean`|false|可选,true会被附加到body|',
+    width: '|`number`|无|可选,搭配appendToBody使用，设置下拉宽度',
+    virtualScroll: '|`boolean`|false|可选,是否虚拟滚动，大数据量场景试用|',
+};
+//# sourceMappingURL=select.js.map
