@@ -3,6 +3,7 @@
 	"displayName": "DevUI组件助手",
 	"description": "api提示与补全,悬浮提示",
 	"keywords": ["devui", "plugin", "helper"],
+	"publisher": "sspku",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.41.0"
