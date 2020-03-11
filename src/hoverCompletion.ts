@@ -14,8 +14,6 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
     /* 减少检索范围，仅检索光标所在行 */ 
     const line = document.lineAt(position);
     const text = line.text.substring(0,position.character);
-    /* 检测d+一个字母 */
-    const componentRegex1 = /<(d[a-zA-Z]*)\b[^<>]*$/g;
     
     // 不匹配import方式引入,因为使用devui的时候这两个不在一个文件当中
     // const importRegex = /import[\s\S]*from\s'@angular\/core'/g;
