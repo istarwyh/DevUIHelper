@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode = require("vscode");
-const move = require("./move");
 function activate(context) {
     console.log('恭喜,你的插件已经被激活了!');
     // 跳转到定义
@@ -10,6 +9,7 @@ function activate(context) {
     require('./hover')(context);
     // 悬浮API提示
     require('./hoverCompletion')(context);
+    require('./move')(context);
     // 从远程获取vscode的相关信息
     // console.log(vscode);
     // 获取vscode所有命令以便调用
@@ -25,9 +25,6 @@ function activate(context) {
     });
     // 所有注册类的API执行后都需要将返回结果放到context.subscriptions中去
     context.subscriptions.push(currentFilePath);
-    // 跳转到代码最上方
-    let disposable_begin_buffer = vscode.commands.registerCommand('extension.moveBeginningOfBuffer', move.moveBeginningOfBuffer);
-    context.subscriptions.push(disposable_begin_buffer);
 }
 exports.activate = activate;
 // this method is called when your extension is deactivated

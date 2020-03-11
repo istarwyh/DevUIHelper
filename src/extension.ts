@@ -1,5 +1,4 @@
 import * as vscode from 'vscode';
-import * as move from './move';
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -14,6 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// 悬浮API提示
 	require('./hoverCompletion')(context);
 
+	require('./move')(context);
 	// 从远程获取vscode的相关信息
 	// console.log(vscode);
 
@@ -32,9 +32,6 @@ export function activate(context: vscode.ExtensionContext) {
 	// 所有注册类的API执行后都需要将返回结果放到context.subscriptions中去
 	context.subscriptions.push(currentFilePath);
 
-	// 跳转到代码最上方
-	let disposable_begin_buffer = vscode.commands.registerCommand('extension.moveBeginningOfBuffer', move.moveBeginningOfBuffer);
-	context.subscriptions.push(disposable_begin_buffer);
 
 }
 

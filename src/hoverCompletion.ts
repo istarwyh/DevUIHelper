@@ -14,7 +14,7 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
     /* 减少检索范围，仅检索光标所在行 */ 
     const line = document.lineAt(position);
     const text = line.text.substring(0,position.character);
-    
+
     // 不匹配import方式引入,因为使用devui的时候这两个不在一个文件当中
     // const importRegex = /import[\s\S]*from\s'@angular\/core'/g;
 
@@ -67,9 +67,11 @@ function capitalize(string: string){
     // join() 方法用于把数组中的所有元素放入一个字符串
     return words.join("");
 }
-const hoverCompletion = languages.registerCompletionItemProvider('html', {
-    provideCompletionItems}, ...completionTriggerChars);
+const hoverCompletion = languages.registerCompletionItemProvider('html', 
+{provideCompletionItems}, ...completionTriggerChars);
+
 module.exports = function(context: { subscriptions: any[]; }) {
-    context.subscriptions.push(hoverCompletion
+    context.subscriptions.push(
+        hoverCompletion
     );
 };

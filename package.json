@@ -14,7 +14,7 @@
 	],
 	"activationEvents": [
 		"onCommand:extension.getCurrentFilePath",
-		"onCommand:extension.moveBeginningOfBuffer",
+		"onCommand:extension.moveBeginning",
 		"onLanguage:json",
 		"onLanguage:javascript",
 		"onLanguage:typescript",
@@ -28,14 +28,22 @@
 				"title": "当前文件(夹)路径"
 			},
 			{
-				"command": "extension.moveBeginningOfBuffer",
-				"title": "move-beginning-of-buffer"
+				"command": "extension.moveBeginning",
+				"title": "move-beginning"
+			},
+			{
+				"command": "extension.moveEnding",
+				"title": "move-Ending"
 			}
 		],
 		"keybindings": [
 			{
-				"command": "extension.moveBeginningOfBuffer",
+				"command": "extension.moveBeginning",
 				"key": "alt+["
+			},
+			{
+				"command": "extension.moveEnding",
+				"key": "alt+]"
 			}
 		],
 		"menus": {

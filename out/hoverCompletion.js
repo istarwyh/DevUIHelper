@@ -58,9 +58,7 @@ function capitalize(string) {
     // join() 方法用于把数组中的所有元素放入一个字符串
     return words.join("");
 }
-const hoverCompletion = vscode_1.languages.registerCompletionItemProvider('html', {
-    provideCompletionItems
-}, ...completionTriggerChars);
+const hoverCompletion = vscode_1.languages.registerCompletionItemProvider('html', { provideCompletionItems }, ...completionTriggerChars);
 module.exports = function (context) {
     context.subscriptions.push(hoverCompletion);
 };
