@@ -15,8 +15,8 @@
 ```
 .
 ├── src
-│   ├── params // devUI官网api属性的module
-│   |── extension.ts // Language Client entry point
+│   ├── params // DevUI官网api属性的module
+│   |── extension.ts // Language Client entry pointD
 │   └── hoverCompletion.ts // api悬浮提示功能模块
 ├── package.json // The extension manifest.
 
