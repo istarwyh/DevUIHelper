@@ -15,8 +15,6 @@ function provideCompletionItems(document, position) {
     // const importRegex = /import[\s\S]*from\s'@angular\/core'/g;
     //devui的使用以d-开头,如d-button.值得一提的是这个在正则表达式的测试中是null.        
     const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
-    // console.log(componentRegex.test(text));
-    console.log("text:" + text);
     // console.log(componentRegex);// componentRegex是一个Object?
     if (componentRegex.test(text)) {
         text.match(componentRegex);
@@ -29,8 +27,8 @@ function provideCompletionItems(document, position) {
         else {
             name = nam;
         }
-        console.log("name:" + name + '\n');
-        const params = params_1.default[name]; // components相当于是一个数组?
+        // console.log("name:"+name+'\n');
+        const params = params_1.default[name];
         if (params) {
             const properties = Object.keys(params);
             const completionItems = properties.map((prop) => {
