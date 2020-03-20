@@ -18,4 +18,6 @@ selectDirection:     '|`string`|\'auto\'|可选，下拉菜单默认方向,有�
 lite:     '|`boolean`|false|可选，是否切换为极简模式|',
 showPageSelector:     '|`boolean`|true|可选，`极简模式`下是否显示页码下拉|',
 haveConfigMenu:     '|`boolean`|false|可选，`极简模式`下是否显示配置|',
+pageIndexChange:     '|`EventEmitter<number>`|可选，页码变化的回调,返回当前页码值|',
+pageSizeChange:     '|`EventEmitter<number>`|可选，每页最大条目数量变更时的回调，返回当前每页显示条目数|',
 };

@@ -1,1 +1,1 @@
-{"version":3,"file":"tooltip.js","sourceRoot":"","sources":["../../src/params/tooltip.ts"],"names":[],"mappings":";;AAAA,kBAAc;IACd,OAAO,EAAM,8BAA8B;IAC3C,QAAQ,EAAM,wEAAwE;IACtF,WAAW,EAAM,+BAA+B;CAC/C,CAAC"}
+{"version":3,"file":"tooltip.js","sourceRoot":"","sources":["../../src/params copy/tooltip.ts"],"names":[],"mappings":";;AAAA,kBAAc;IACd,KAAK,EAAC,IAAI;IACV,OAAO,EAAM,8BAA8B;IAC3C,QAAQ,EAAM,wEAAwE;IACtF,WAAW,EAAM,+BAA+B;CAC/C,CAAC"}

@@ -9,4 +9,5 @@ showLoading:     '|`boolean`|false|【可选】是否显示加载提示|',
 width:     '|`number`|--|【可选】button宽度|',
 disabled:     '|`boolean`|false|【可选】是否禁用button|',
 autofocus:     '|`boolean`|false|【可选】按钮加载时是否自动获得焦点|',
+btnClick:     '|`func`|--|【可选】button点击事件，解决IE浏览器disabled还会触发click|',
 };

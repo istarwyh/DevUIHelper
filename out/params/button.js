@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
+    param: '参数',
     id: '|`string`|--|【可选】buttonid|',
     type: '|`IButtonType`|button|【可选】类型\'button\'\|\'submit\'\|\'reset\'|',
     bsStyle: '|`IButtonStyle`|primary|【可选】风格\'primary\'\|\'common\'\|\'text\'\|\'text-dark\'|',
@@ -11,5 +12,7 @@ exports.default = {
     width: '|`number`|--|【可选】button宽度|',
     disabled: '|`boolean`|false|【可选】是否禁用button|',
     autofocus: '|`boolean`|false|【可选】按钮加载时是否自动获得焦点|',
+    ins: '事件',
+    btnClick: '|`func`|--|【可选】button点击事件，解决IE浏览器disabled还会触发click|',
 };
 //# sourceMappingURL=button.js.map

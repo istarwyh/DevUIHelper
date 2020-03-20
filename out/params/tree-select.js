@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
+    param: '参数',
     placeholder: '|string|``|占位字符串|',
     disabled: '|boolean|`false`|禁止输入态|',
     expandTree: '|boolean|`false`|是否自动展开树|',

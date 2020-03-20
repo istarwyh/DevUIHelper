@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
+    param: '参数',
     fileOptions: '|`IFileOptions`，参考下方options|--|必选，待上传文件配置|',
     filePath: '|`string`|--|必选，文件路径|',
     uploadOptions: '|`IUploadOptions`，参考下方options|--|必选，上传配置|',
@@ -12,5 +13,6 @@ exports.default = {
     uploadedFilesRef: '|`TemplateRef<any>`|--|可选，用于创建自定义已上传文件列表模板|',
     withoutBtn: '|`boolean`|false|可选，是否舍弃按钮|',
     enableDrop: '|`boolean`|false|可选，是否支持拖拽|',
+    ins: '事件',
 };
 //# sourceMappingURL=upload.js.map

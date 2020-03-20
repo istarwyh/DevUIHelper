@@ -1,1 +1,1 @@
-{"version":3,"file":"tabs.js","sourceRoot":"","sources":["../../src/params/tabs.ts"],"names":[],"mappings":";;AAAA,kBAAc;IACd,IAAI,EAAM,+CAA+C;IACzD,WAAW,EAAM,kCAAkC;IACnD,SAAS,EAAM,oCAAoC;IACnD,QAAQ,EAAM,+BAA+B;IAC7C,WAAW,EAAM,4BAA4B;CAC5C,CAAC"}
+{"version":3,"file":"tabs.js","sourceRoot":"","sources":["../../src/params copy/tabs.ts"],"names":[],"mappings":";;AAAA,kBAAc;IACd,KAAK,EAAC,IAAI;IACV,IAAI,EAAM,+CAA+C;IACzD,WAAW,EAAM,kCAAkC;IACnD,SAAS,EAAM,oCAAoC;IACnD,QAAQ,EAAM,+BAA+B;IAC7C,WAAW,EAAM,4BAA4B;IAC7C,GAAG,EAAC,IAAI;CACP,CAAC"}
