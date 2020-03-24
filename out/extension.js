@@ -9,6 +9,7 @@ function activate(context) {
     require('./hover')(context);
     // 悬浮API提示
     require('./hoverCompletion')(context);
+    require('./hoverAccident')(context);
     // 跳转到文件上部或下部
     require('./move')(context);
     // 从远程获取vscode的相关信息

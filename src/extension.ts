@@ -13,6 +13,8 @@ export function activate(context: vscode.ExtensionContext) {
 	// 悬浮API提示
 	require('./hoverCompletion')(context);
 
+	require('./hoverAccident')(context);
+
 	// 跳转到文件上部或下部
 	require('./move')(context);
 
