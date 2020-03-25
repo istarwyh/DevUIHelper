@@ -25,7 +25,8 @@ function provideCompletionItems(document, position) {
                 // CompletionItemKind用于决定提示项前面的icon图标，有多种类型，Class是其中一种
                 // https://code.visualstudio.com/docs/extensionAPI/vscode-api#CompletionItemKind
                 const completionItem = new vscode_1.CompletionItem(prop, vscode_1.CompletionItemKind.Variable);
-                completionItem.detail = params[prop];
+                const mark = new vscode_1.MarkdownString("");
+                completionItem.documentation = mark.appendCodeblock(params[prop], 'typescript');
                 return completionItem;
             });
             return completionItems;

@@ -1,9 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    param: '参数',
     ngModel: '|`any`|(none)|可选，绑定选中对象，可双向绑定|',
-    ins: '事件',
     ngModelChange: '|`EventEmitter`|(none)|可选，仅支持事件绑定，用于处理选中对象发生变化|',
     disabled: '|`boolean`|false|可选，值为true禁用下拉框|',
     placeholder: '|`string`|\'\'|可选，没有选中项的时候提示文字|',

@@ -1,6 +1,6 @@
 'use strict';
 import {
-     TextDocument,languages, CompletionItem, Position, CompletionItemKind
+     TextDocument,languages, CompletionItem, Position, CompletionItemKind, MarkdownString
 } from 'vscode';
 // 下面这个语句导入一个文件夹模块,入口在index
 import components from './params_accident';
@@ -21,7 +21,8 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
             const properties = Object.keys(params);
             const completionItems = properties.map((prop) => {
                 const completionItem = new CompletionItem(prop, CompletionItemKind.Event);
-                completionItem.detail = params[prop];
+                const mark = new MarkdownString(""); 
+                completionItem.documentation = mark.appendCodeblock(params[prop],'typescript');
                 return completionItem;
             });
 

@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    param: '参数',
     options: '|`array`|[]|可选,和searchFn互斥，两者必须有且只有一个。下拉选项资源`string``object`|',
     isSearch: '|`boolean`|false|可选,是否支持过滤搜索|',
     scrollHight: '|`string`|\'300px\'|可选,下拉菜单高度,建议使用px作为高度单位|',
@@ -35,6 +34,8 @@ exports.default = {
     appendToBody: '|`boolean`|false|可选,true会被附加到body|',
     width: '|`number`|无|可选,搭配appendToBody使用，设置下拉宽度',
     virtualScroll: '|`boolean`|false|可选,是否虚拟滚动，大数据量场景试用|',
-    ins: '事件',
+    valueChange: '|`Array<any>`|可选,输出函数,当选中某个选项项后,将会调用此函数,参数为当前选择项的值|',
+    toggleChange: '|`boolean`|可选,输出函数,下拉打开关闭toggle事件|',
+    loadMore: '|`object`|懒加载触发事件，配合`enableLazyLoad`使用，使用`$event.instance.loadFinish()`结束本次加载|',
 };
 //# sourceMappingURL=select.js.map

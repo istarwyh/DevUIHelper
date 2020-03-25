@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    param: '参数',
     min: '|`number`|0|可选，滑动输入条的最小值|',
     max: '|`number`|100|可选，滑动输入条的最大值|',
     step: '|`number`|1|可选，滑动输入条的步长，取值必须大于等于0，且必须可被(max-min)整除|',

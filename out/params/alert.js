@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    param: '参数',
     type: '|`string`|\'info\'|必选，指定警告提示的样式，有四种选择success\|danger\|warning\|info|',
     cssClass: '|`string`|--|可选，自定义class名|',
     closeable: '|`boolean`|true|可选，默认显示关闭按钮|',

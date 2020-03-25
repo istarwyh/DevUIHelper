@@ -16,7 +16,8 @@ function provideCompletionItems(document, position) {
             const properties = Object.keys(params);
             const completionItems = properties.map((prop) => {
                 const completionItem = new vscode_1.CompletionItem(prop, vscode_1.CompletionItemKind.Event);
-                completionItem.detail = params[prop];
+                const mark = new vscode_1.MarkdownString("");
+                completionItem.documentation = mark.appendCodeblock(params[prop], 'typescript');
                 return completionItem;
             });
             return completionItems;

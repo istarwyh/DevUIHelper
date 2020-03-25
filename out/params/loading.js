@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    param: '参数',
     loading: '|`LoadingType`|--|可选，控制loading状态|',
     message: '|`string`|--|可选，loading时的提示信息|',
     loadingTemplateRef: '|`TemplateRef<any>`|--|可选，自定义loading模板|',

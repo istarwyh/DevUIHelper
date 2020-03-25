@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    param: '参数',
     content: '|`string`|--|必选，弹出框的显示内容|',
     visible: '|`boolean`|false|可选，弹框的初始化弹出状态|',
     trigger: '|`\'hover\'\|\'click\'`|\'click\'|弹框触发方式|',

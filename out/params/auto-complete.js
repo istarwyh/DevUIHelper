@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    param: '参数',
     source: '|`array`|[]|必选，有searchFn的情况下可以不必选|',
     disabled: '|`boolean`|false|可选，是否禁止指令|',
     cssClass: '|`string`|--|可选，自定义class名|',

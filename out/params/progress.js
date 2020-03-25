@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    param: '参数',
     percentage: '|`number`|0|进度条的值最大为100|',
     percentageText: '|`string`|--|进度条当前值的文字说明比如：\'30%\'\|\'4/5\'|',
     barbgcolor: '|`string`|\'#5170ff\'|进度条的颜色显示，默认为天蓝色|',

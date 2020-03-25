@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    param: '参数',
     pageSize: '|`number`|10|可选，每页显示最大条目数量|',
     total: '|`number`|0|可选，显示的总条目数|',
     pageSizeOptions: '|`number[]`|10|可选，分页每页最大条目数量的下拉框的数据源，默认有四种选择5,10,20,50|',
@@ -21,6 +20,7 @@ exports.default = {
     lite: '|`boolean`|false|可选，是否切换为极简模式|',
     showPageSelector: '|`boolean`|true|可选，`极简模式`下是否显示页码下拉|',
     haveConfigMenu: '|`boolean`|false|可选，`极简模式`下是否显示配置|',
-    ins: '事件',
+    pageIndexChange: '|`EventEmitter<number>`|可选，页码变化的回调,返回当前页码值|',
+    pageSizeChange: '|`EventEmitter<number>`|可选，每页最大条目数量变更时的回调，返回当前每页显示条目数|',
 };
 //# sourceMappingURL=pagination.js.map

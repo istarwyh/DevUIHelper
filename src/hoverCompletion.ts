@@ -1,7 +1,7 @@
 'use strict';
 import {
     window, commands, Disposable, ExtensionContext, StatusBarAlignment, StatusBarItem, TextDocument,
-    languages, CompletionItem, Position, CompletionItemKind, Range, TextEdit
+    languages, CompletionItem, Position, CompletionItemKind, Range, TextEdit, MarkdownString
 } from 'vscode';
 // 下面这个语句导入一个文件夹模块,入口在index
 import components from './params';
@@ -32,7 +32,8 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
                 // CompletionItemKind用于决定提示项前面的icon图标，有多种类型，Class是其中一种
                 // https://code.visualstudio.com/docs/extensionAPI/vscode-api#CompletionItemKind
                 const completionItem = new CompletionItem(prop, CompletionItemKind.Variable);
-                completionItem.detail = params[prop];
+                const mark = new MarkdownString(""); 
+                completionItem.documentation = mark.appendCodeblock(params[prop],'typescript');
 
                 return completionItem;
             });

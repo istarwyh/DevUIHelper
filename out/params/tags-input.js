@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    param: '参数',
     tags: '|`Array`|[]|必选，记录输入的标签和选择的标签列表|',
     displayProperty: '|`string`|\'name\'|可数，列表项使用的属性名|',
     placeholder: '|`boolean`|\'\'|可选，输入框的placeholder|',
@@ -13,6 +12,6 @@ exports.default = {
     isAddBySpace: '|`boolean`|true|可选，是否支持空格键输入标签|',
     suggestionList: '|`Array`|[]|可选，下拉选项，默认可选择的标签列表|',
     checkBeforeAdd: '|`function\|Promise\|Observable`|无|可选，自定义校验函数，类型为(newTag:string)=>boolean或者Promise<boolean>或者Observable<boolean>|',
-    ins: '事件',
+    valueChange: '|当前选中选项的值|当选中某个选项项后，将会调用此函数，参数为当前选择项的值。如果需要获取所有选择状态的值，请使用(ngModelChange)|',
 };
 //# sourceMappingURL=tags-input.js.map

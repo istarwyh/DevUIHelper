@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    param: '参数',
     tree: '|`Array<ITreeItem>`|[]|树数组|',
     treeNodesRef: '|`TemplateRef<any>`|undefined|可选，自定义节点模板|',
     treeNodeIdKey: '|`string`|id|可选，标识节点唯一id的键值|',
@@ -10,6 +9,29 @@ exports.default = {
     iconParentOpen: '|`string`|undefined|可选，节点打开时显示的图标|',
     iconParentClose: '|`string`|undefined|可选，节点关闭时显示的图标|',
     iconLeaf: '|`string`|undefined|可选，节点为叶节点时显示的图标|',
-    ins: '事件',
+    nodeSelected: '|`TreeNode`|节点点击事件回调，值为选中的节点|',
+    nodeToggled: '|`TreeNode`|节点展开事件回调，值为展开节点|',
+    selectNode: '|`(event,TreeNode)`|选择节点|',
+    toggleNode: '|`(event,TreeNode)`|展开节点|',
+    appendTreeItems: '|`([]<ITreeItem>,parentId)`|添加树节点，参数和tree数组结构相同|',
+    showLoading: '|`boolean`|false|可选，是否显示加载中状态|',
+    addable: '|`boolean`|false|可选，是否显示新增子节点按钮|',
+    checkable: '|`boolean`|true|可选，是否显示复选框|',
+    editable: '|`boolean`|false|可选，是否显示编辑子节点按钮|',
+    deletable: '|`boolean`|false|可选，是否显示删除子节点按钮|',
+    beforeAddNode: '|`Promise`|--|可选，新增子节点前回调(参数为当前节点)|',
+    postAddNode: '|`Promise`|--|可选，新增节点后回调(参数为新增节点)|',
+    beforeDeleteNode: '|`Promise`|--|可选，删除节点前回调(参数为当前节点)|',
+    draggable: '|`boolean`|false|可选，树节点是否支持drag、drop操作|',
+    beforeNodeDrop: '|`Promise`|--|可选，子节点内部拖动drop前回调|',
+    editValueChange: '|`function`|{value:xxx,callback:func}|可选，支持节点title编辑校验，使用时校验不通过callback({errTips:\'xxxxxx\'}),通过callback()|',
+    canActivateNode: '|`boolean`|true|可选，是否可以选中节点|',
+    canActivateParentNode: '|`boolean`|true|可选，父节点是否可选中，false时触发toggle操作|',
+    checkboxInput: '|`ICheckboxInput`|{color:\'F38826\'}|可选，用来给复选框设置相关属性|',
+    nodeDeleted: '|`TreeNode`|节点删除事件回调，值为被删除的节点|',
+    nodeChecked: '|`[]<TreeNode>`|节点选中事件回调，值为复选框操作的节点|',
+    nodeEdited: '|`TreeNode`|节点title编辑事件回调，值为被编辑的节点|',
+    nodeOnDrop: '|`{event,TreeNode}`|节点onDrop事件回调(任意可拖动元素drop)，值为节点|',
+    iconTemplatePosition: '|`string`|after-checkbox|可选，支持`before-checkbox`,`after-checkbox`|',
 };
 //# sourceMappingURL=tree.js.map

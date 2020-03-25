@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    param: '参数',
     drawerContentComponent: '|`Type<any>`|--|必要参数，传入自定义的component|',
     componentFactoryResolver: '|`ComponentFactoryResolver`|组件库provider提供|【可选】一般不需要设置|',
     injector: '|`Injector`|default|【可选】一般不需要设置|',
