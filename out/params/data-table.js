@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
+    param: '参数',
     checkable: '|【可选】Datatable是否提供勾选行的功能|`boolean`|--|',
     showDetail: '|【可选】是否提供显示行详情的功能|`boolean`|--|',
     fixHeader: '|【可选】是否固定表头（在表格超过容器最大高度时，表格可滚动时生效）|`boolean`|--|',
@@ -22,5 +23,11 @@ exports.default = {
     multiSort: '|【可选】多列选择数组，用来指导那几列会被排序|`SortEventArg`[]|[]|',
     resizeable: '|【可选】是否可以拖拽调整列宽|`boolean`|--|',
     detailTemplateRef: '|【可选】用来自定义详情页的模板|`TemplateRef`|--|',
+    ins: '事件',
+    timeout: '|【可选】同时绑定单击、双击事件时，用于区分点击的时间间隔,默认300ms，两个事件不同时使用可以指定为0|`number`|300|',
+    headerExpandConfig: '|【可选】配置header下的额外内容|`TableExpandConfig`|--|',
+    checkableRelation: '|【可选】配置树形表格的父子选中是否互相关联upward：选中子关联父downward：选中父关联子|`CheckableRelation`|--|',
+    loadChildrenTable: '|【可选】展开子表格的回调，用于异步加载子表格|`Promise`|--|',
+    loadAllChildrenTable: '|【可选】表头展开所有子表格的回调，用于异步加载所有子表格|`Promise`|--|',
 };
 //# sourceMappingURL=data-table.js.map

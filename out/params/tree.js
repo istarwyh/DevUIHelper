@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
+    param: '参数',
     tree: '|`Array<ITreeItem>`|[]|树数组|',
     treeNodesRef: '|`TemplateRef<any>`|undefined|可选，自定义节点模板|',
     treeNodeIdKey: '|`string`|id|可选，标识节点唯一id的键值|',
@@ -9,5 +10,6 @@ exports.default = {
     iconParentOpen: '|`string`|undefined|可选，节点打开时显示的图标|',
     iconParentClose: '|`string`|undefined|可选，节点关闭时显示的图标|',
     iconLeaf: '|`string`|undefined|可选，节点为叶节点时显示的图标|',
+    ins: '事件',
 };
 //# sourceMappingURL=tree.js.map
