@@ -9,8 +9,20 @@ export function getName(text: string,componentRegex: RegExp){
     }else{
         name = nam;
     }
+    // console.log("name: " + name);
     return name;
 
+}
+export function word2Name(word: string){
+    const n  = word.substring(2);
+    const nam = n.replace(n[0],n[0].toUpperCase());//匹配之后对字符串处理然后匹配导出的模块
+    let name: string;
+    if (nam.indexOf("-") !== -1){
+        name = capitalize(nam);
+    }else{
+        name = nam;
+    }
+    return name;
 }
 function capitalize(string: string){
     // split() 方法用于把一个字符串分割成字符串数组。

@@ -11,9 +11,23 @@ function getName(text, componentRegex) {
     else {
         name = nam;
     }
+    // console.log("name: " + name);
     return name;
 }
 exports.getName = getName;
+function word2Name(word) {
+    const n = word.substring(2);
+    const nam = n.replace(n[0], n[0].toUpperCase()); //匹配之后对字符串处理然后匹配导出的模块
+    let name;
+    if (nam.indexOf("-") !== -1) {
+        name = capitalize(nam);
+    }
+    else {
+        name = nam;
+    }
+    return name;
+}
+exports.word2Name = word2Name;
 function capitalize(string) {
     // split() 方法用于把一个字符串分割成字符串数组。
     var words = string.split("-");
