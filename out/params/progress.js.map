@@ -1,1 +1,1 @@
-{"version":3,"file":"progress.js","sourceRoot":"","sources":["../../src/params/progress.ts"],"names":[],"mappings":";;AAAA,kBAAc;IACd,UAAU,EAAM,0BAA0B;IAC1C,cAAc,EAAM,8CAA8C;IAClE,UAAU,EAAM,wCAAwC;IACxD,MAAM,EAAM,sCAAsC;IAClD,QAAQ,EAAM,8BAA8B;IAC5C,WAAW,EAAM,wCAAwC;CACxD,CAAC"}
+{"version":3,"file":"progress.js","sourceRoot":"","sources":["../../src/params/progress.ts"],"names":[],"mappings":";;AAAA,kBAAc;IACd,UAAU,EAAM,2BAA2B;IAC3C,cAAc,EAAM,+CAA+C;IACnE,UAAU,EAAM,yCAAyC;IACzD,MAAM,EAAM,uCAAuC;IACnD,QAAQ,EAAM,+BAA+B;IAC7C,WAAW,EAAM,yCAAyC;CACzD,CAAC"}
