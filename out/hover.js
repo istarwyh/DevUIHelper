@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode = require("vscode");
-const path = require("path");
 const params_1 = require("./params");
 const Collections = require("typescript-collections");
 const vscode_1 = require("vscode");
@@ -13,8 +12,6 @@ const _getName = require("./util/getName");
  * @param {*} token
  */
 function provideHover(document, position, token) {
-    const fileName = document.fileName;
-    const workDir = path.dirname(fileName);
     const word = document.getText(document.getWordRangeAtPosition(position));
     const params = params_1.default[_getName.word2Name(word)];
     if (params) {

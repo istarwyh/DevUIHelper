@@ -33,6 +33,7 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
                 // https://code.visualstudio.com/docs/extensionAPI/vscode-api#CompletionItemKind
                 const completionItem = new CompletionItem(prop, CompletionItemKind.Variable);
                 const mark = new MarkdownString(""); 
+                // params[prop]就是label对应的api细节部分
                 completionItem.documentation = mark.appendCodeblock(params[prop],'typescript');
 
                 return completionItem;

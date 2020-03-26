@@ -14,8 +14,6 @@ import * as _getName from './util/getName';
  * @param {*} token 
  */
 function provideHover(document:any, position:any, token:any) {
-    const fileName    = document.fileName;
-    const workDir     = path.dirname(fileName);
     const word        = document.getText(document.getWordRangeAtPosition(position));
 
     const params = components[_getName.word2Name(word)];

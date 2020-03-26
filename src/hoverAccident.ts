@@ -22,7 +22,6 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
             const completionItems = properties.map((prop) => {
                 const completionItem = new CompletionItem(prop, CompletionItemKind.Event);
                 const mark = new MarkdownString(""); 
-                // params[prop]就是label对应的api细节部分
                 completionItem.documentation = mark.appendCodeblock(params[prop],'typescript');
                 console.log("<>"+params[prop]);
                 return completionItem;
