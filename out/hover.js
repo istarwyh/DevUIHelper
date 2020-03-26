@@ -22,11 +22,14 @@ function provideHover(document, position, token) {
         var mySet = new Collections.Set();
         const properties = Object.keys(params);
         for (let api of properties) {
-            mySet.add("\n" + api);
+            mySet.add(api + "\n");
         }
         // ts中一切都是对象,hoverContent也不例外
-        // 怎么把这个对象完全放进去再打出来?
-        const hoverContent = new vscode_1.MarkdownString("").appendCodeblock(mySet.toString().replace("[", "").replace("]", ""), 'typescript');
+        let content = mySet.toString().replace("[", "").replace("]", "");
+        while (content.indexOf(",") !== -1) {
+            content = content.replace(",", "");
+        }
+        const hoverContent = new vscode_1.MarkdownString("").appendCodeblock(content, 'typescript');
         return new vscode.Hover(hoverContent);
     }
 }
