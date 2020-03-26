@@ -15,7 +15,6 @@ function provideHover(document, position, token) {
     const word = document.getText(document.getWordRangeAtPosition(position));
     const params = params_1.default[_getName.word2Name(word)];
     if (params) {
-        console.log('====进入provideHover方法====');
         var mySet = new Collections.Set();
         const properties = Object.keys(params);
         for (let api of properties) {

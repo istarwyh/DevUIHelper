@@ -28,6 +28,7 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
         const params = components[_getName.getName(text,componentRegex)];
         if (params) {
             const properties = Object.keys(params);
+            // 回调函数循环将prop对应的details提取出来
             const completionItems = properties.map((prop) => {
                 // CompletionItemKind用于决定提示项前面的icon图标，有多种类型，Class是其中一种
                 // https://code.visualstudio.com/docs/extensionAPI/vscode-api#CompletionItemKind

@@ -2,12 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode = require("vscode");
 function activate(context) {
-    console.log('恭喜,你的插件已经被激活了!');
     // 跳转到定义
     require('./jump-to-definition')(context);
-    // 悬浮提示
+    // 悬浮提示api
     require('./hover')(context);
-    // 悬浮API提示
+    //悬浮提示api细节
+    require('./hoverApiDetail')(context);
+    // API提示与补全
     require('./hoverCompletion')(context);
     // 悬浮事件提示
     require('./hoverAccident')(context);
