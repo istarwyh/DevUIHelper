@@ -9,6 +9,7 @@ function activate(context) {
     require('./hover')(context);
     // 悬浮API提示
     require('./hoverCompletion')(context);
+    // 悬浮事件提示
     require('./hoverAccident')(context);
     // 跳转到文件上部或下部
     require('./move')(context);
