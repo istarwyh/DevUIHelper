@@ -17,7 +17,9 @@ function provideCompletionItems(document, position) {
             const completionItems = properties.map((prop) => {
                 const completionItem = new vscode_1.CompletionItem(prop, vscode_1.CompletionItemKind.Event);
                 const mark = new vscode_1.MarkdownString("");
+                // params[prop]就是label对应的api细节部分
                 completionItem.documentation = mark.appendCodeblock(params[prop], 'typescript');
+                console.log("<>" + params[prop]);
                 return completionItem;
             });
             return completionItems;
