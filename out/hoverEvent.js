@@ -16,7 +16,7 @@ function provideCompletionItems(document, position) {
             const properties = Object.keys(params);
             const completionItems = properties.map((prop) => {
                 const completionItem = new vscode_1.CompletionItem(prop, vscode_1.CompletionItemKind.Event);
-                const mark = new vscode_1.MarkdownString("");
+                const mark = new vscode_1.MarkdownString("&emsp;事件&emsp;&emsp;|&emsp;&emsp;类型&emsp;&emsp;|&emsp;&emsp;说明&emsp;");
                 completionItem.documentation = mark.appendCodeblock(params[prop], 'typescript');
                 completionItem.insertText = "(" + prop + ")=\"\"";
                 completionItem.preselect = true;

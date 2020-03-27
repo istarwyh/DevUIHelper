@@ -21,7 +21,7 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
             const properties = Object.keys(params);
             const completionItems = properties.map((prop) => {
                 const completionItem = new CompletionItem(prop, CompletionItemKind.Event);
-                const mark = new MarkdownString(""); 
+                const mark = new MarkdownString("&emsp;事件&emsp;&emsp;|&emsp;&emsp;类型&emsp;&emsp;|&emsp;&emsp;说明&emsp;"); 
                 completionItem.documentation = mark.appendCodeblock(params[prop],'typescript');
                 completionItem.insertText = "("+prop+")=\"\"";
                 completionItem.preselect = true;
