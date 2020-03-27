@@ -7,8 +7,7 @@
     - `alt+[`/`]`=>移动到文件首/尾
 
 ### 演示如下:
-![Honeycam 2020-03-04 21-08-48](https://gitee.com/istarwyh/images/raw/master/1583327463_20200304211051097_16406.gif)
-
+![DevUIHelper演示](https://gitee.com/istarwyh/images/raw/master/1585274191_20200327095616237_17548.gif)
 
 ## Structure
 
@@ -17,7 +16,10 @@
 ├── src
 │   ├── params // DevUI官网api属性的module
 │   |── extension.ts // Language Client entry pointD
-│   └── hoverCompletion.ts // api悬浮提示功能模块
+|   |── hover.ts //api悬浮提示
+|   |── hoverApiDetail.ts //api细节悬浮提示
+|   |── hoverAccident.ts //api事件自动提示补全
+│   └── hoverCompletion.ts // api参数自动提示补全
 ├── package.json // The extension manifest.
 
 ```
