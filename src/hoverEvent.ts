@@ -3,7 +3,7 @@ import {
      TextDocument,languages, CompletionItem, Position, CompletionItemKind, MarkdownString
 } from 'vscode';
 // 下面这个语句导入一个文件夹模块,入口在index
-import components from './params_accident';
+import components from './params_Event';
 import * as _getName from './util/getName';
 
 const completionTriggerChars = [" ", "\n"];  
@@ -23,7 +23,6 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
                 const completionItem = new CompletionItem(prop, CompletionItemKind.Event);
                 const mark = new MarkdownString(""); 
                 completionItem.documentation = mark.appendCodeblock(params[prop],'typescript');
-                console.log("<>"+params[prop]);
                 return completionItem;
             });
 
@@ -34,11 +33,11 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
     return [];
 }
 
-const hoverAccident = languages.registerCompletionItemProvider('html', 
+const hoverEvent = languages.registerCompletionItemProvider('html', 
 {provideCompletionItems}, ...completionTriggerChars);
 
 module.exports = function(context: { subscriptions: any[]; }) {
     context.subscriptions.push(
-        hoverAccident
+        hoverEvent
     );
 };
