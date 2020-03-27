@@ -18,6 +18,8 @@ function provideCompletionItems(document, position) {
                 const completionItem = new vscode_1.CompletionItem(prop, vscode_1.CompletionItemKind.Event);
                 const mark = new vscode_1.MarkdownString("");
                 completionItem.documentation = mark.appendCodeblock(params[prop], 'typescript');
+                completionItem.insertText = "(" + prop + ")=\"\"";
+                completionItem.preselect = true;
                 return completionItem;
             });
             return completionItems;

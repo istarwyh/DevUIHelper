@@ -23,6 +23,8 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
                 const completionItem = new CompletionItem(prop, CompletionItemKind.Event);
                 const mark = new MarkdownString(""); 
                 completionItem.documentation = mark.appendCodeblock(params[prop],'typescript');
+                completionItem.insertText = "("+prop+")=\"\"";
+                completionItem.preselect = true;
                 return completionItem;
             });
 

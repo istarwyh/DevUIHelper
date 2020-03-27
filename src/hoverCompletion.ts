@@ -9,12 +9,12 @@ import * as _getName from './util/getName';
 
 const completionTriggerChars = [" ", "\n"];  
 function  provideCompletionItems(document: TextDocument, position: Position): CompletionItem[] {
-    // const start: Position = new Position(0, 0);
-    // const range: Range = new Range(start, position);
-    // const text = document.getText(range);
+    const start: Position = new Position(0, 0);
+    const range: Range = new Range(start, position);
+    const text = document.getText(range);
     /* 减少检索范围，仅检索光标所在行 */ 
-    const line = document.lineAt(position);
-    const text = line.text.substring(0,position.character);
+    // const line = document.lineAt(position);
+    // const text = line.text.substring(0,position.character);
 
     // 不匹配import方式引入,因为使用devui的时候这两个不在一个文件当中
     // const importRegex = /import[\s\S]*from\s'@angular\/core'/g;
@@ -36,7 +36,9 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
                 const mark = new MarkdownString(""); 
                 // params[prop]就是label对应的api细节部分
                 completionItem.documentation = mark.appendCodeblock(params[prop],'typescript');
-
+                // TODO:如何控制光标在补全后后移一位进入""中? 
+                completionItem.insertText = "["+prop+"]=\"\"";
+                completionItem.preselect = true;
                 return completionItem;
             });
 
