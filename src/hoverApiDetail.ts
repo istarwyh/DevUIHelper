@@ -1,6 +1,7 @@
 'use strict';
 import * as vscode from 'vscode';
 import components from './params';
+import componentAccident from './params_accident';
 import * as _getName from './util/getName';
 import { MarkdownString } from 'vscode';
 
@@ -9,14 +10,20 @@ function provideHover(document:any, position:any, token:any) {
     const text = line.text.substring(0,position.character);    
     const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
     if (componentRegex.test(text)) {
-        const params = components[_getName.getName(text,componentRegex)];
-        const properties = Object.keys(params);
-        console.log("params: " +params);
-
+        const name = _getName.getName(text,componentRegex);
+        const params = components[name];
+        const params_accident = componentAccident[name];
         const word = document.getText(document.getWordRangeAtPosition(position));
-        const mark = new MarkdownString(""); 
-        const apiDetail = mark.appendCodeblock(params[word],'typescript');
-        return new vscode.Hover(apiDetail);
+        if(params[word]){
+            const mark = new MarkdownString(""); 
+            const apiDetail = mark.appendCodeblock(params[word],'typescript');
+            return new vscode.Hover(apiDetail);
+
+        }else{
+            const mark = new MarkdownString(""); 
+            const apiDetail = mark.appendCodeblock(params_accident[word],'typescript');
+            return new vscode.Hover(apiDetail);
+        }
     }
 }
 

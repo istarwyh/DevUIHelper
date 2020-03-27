@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode = require("vscode");
 const params_1 = require("./params");
+const params_accident_1 = require("./params_accident");
 const _getName = require("./util/getName");
 const vscode_1 = require("vscode");
 function provideHover(document, position, token) {
@@ -9,13 +10,20 @@ function provideHover(document, position, token) {
     const text = line.text.substring(0, position.character);
     const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
     if (componentRegex.test(text)) {
-        const params = params_1.default[_getName.getName(text, componentRegex)];
-        const properties = Object.keys(params);
-        console.log("params: " + params);
+        const name = _getName.getName(text, componentRegex);
+        const params = params_1.default[name];
+        const params_accident = params_accident_1.default[name];
         const word = document.getText(document.getWordRangeAtPosition(position));
-        const mark = new vscode_1.MarkdownString("");
-        const apiDetail = mark.appendCodeblock(params[word], 'typescript');
-        return new vscode.Hover(apiDetail);
+        if (params[word]) {
+            const mark = new vscode_1.MarkdownString("");
+            const apiDetail = mark.appendCodeblock(params[word], 'typescript');
+            return new vscode.Hover(apiDetail);
+        }
+        else {
+            const mark = new vscode_1.MarkdownString("");
+            const apiDetail = mark.appendCodeblock(params_accident[word], 'typescript');
+            return new vscode.Hover(apiDetail);
+        }
     }
 }
 module.exports = function (context) {
