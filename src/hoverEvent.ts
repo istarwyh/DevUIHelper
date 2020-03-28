@@ -1,6 +1,6 @@
 'use strict';
 import {
-     TextDocument,languages, CompletionItem, Position, CompletionItemKind, MarkdownString
+     TextDocument,languages, CompletionItem, Position, CompletionItemKind, MarkdownString, SnippetString
 } from 'vscode';
 // 下面这个语句导入一个文件夹模块,入口在index
 import components from './params_Event';
@@ -23,11 +23,10 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
                 const completionItem = new CompletionItem(prop, CompletionItemKind.Event);
                 const mark = new MarkdownString("&emsp;事件&emsp;&emsp;|&emsp;&emsp;类型&emsp;&emsp;|&emsp;&emsp;说明&emsp;"); 
                 completionItem.documentation = mark.appendCodeblock(params[prop],'typescript');
-                completionItem.insertText = "("+prop+")=\"\"";
+                completionItem.insertText =new SnippetString("("+prop+")=\"${1:}\"");
                 completionItem.preselect = true;
                 return completionItem;
             });
-
             return completionItems;
         }
         return [];
