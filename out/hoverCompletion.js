@@ -34,7 +34,7 @@ function provideCompletionItems(document, position) {
                 // CompletionItemKind用于决定提示项前面的icon图标，有多种类型，Class是其中一种
                 // https://code.visualstudio.com/docs/extensionAPI/vscode-api#CompletionItemKind
                 const completionItem = new vscode_1.CompletionItem(prop, vscode_1.CompletionItemKind.Variable);
-                const mark = new vscode_1.MarkdownString("&emsp;参数&emsp;|&emsp;类型&emsp;|&emsp;默认&emsp;|&emsp;说明&emsp;");
+                const mark = new vscode_1.MarkdownString("|&emsp;类型&emsp;|&emsp;默认&emsp;|&emsp;说明&emsp;");
                 // params[prop]就是label对应的api细节部分
                 completionItem.documentation = mark.appendCodeblock(params[prop], 'typescript');
                 // TODO:如何控制光标在补全后后移一位进入""中? 
