@@ -9,6 +9,7 @@ All notable changes to the "devui" extension will be documented in this file.
 - `Security` in case of vulnerabilities.
 ## Changes between DevUIHelper 1.0.5 and DevUIHelper 1.0.8 (Mar 28th, 2020)
 - `Fixed` support Hover when go to the next line
+- `Added` Hover title 
 ## Changes between DevUIHelper 1.0.4 and DevUIHelper 1.0.5 (Mar 28th, 2020)
 - `Changed` icon becomes more beautiful
 - `Added` after the completion the cursor keeps in the center of ``""``
