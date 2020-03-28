@@ -12,7 +12,6 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
     const start: Position = new Position(0, 0);
     const range: Range = new Range(start, position);
     const text = document.getText(range);
-    /* 减少检索范围，仅检索光标所在行 */ 
      
     const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
     

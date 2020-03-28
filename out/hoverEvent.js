@@ -9,7 +9,6 @@ function provideCompletionItems(document, position) {
     const start = new vscode_1.Position(0, 0);
     const range = new vscode_1.Range(start, position);
     const text = document.getText(range);
-    /* 减少检索范围，仅检索光标所在行 */
     const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
     if (componentRegex.test(text)) {
         const params = params_Event_1.default[_getName.getName(text, componentRegex)];

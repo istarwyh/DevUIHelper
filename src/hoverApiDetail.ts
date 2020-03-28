@@ -16,12 +16,12 @@ function provideHover(document:any, position:any, token:any) {
         const params_Event = componentEvent[name];
         const word = document.getText(document.getWordRangeAtPosition(position));
         if(params[word]){
-            const mark = new MarkdownString(""); 
+            const mark = new MarkdownString("&emsp;参数&emsp;|&emsp;类型&emsp;|&emsp;默认&emsp;|&emsp;说明&emsp;"); 
             const apiDetail = mark.appendCodeblock(params[word],'typescript');
             return new vscode.Hover(apiDetail);
 
         }else{
-            const mark = new MarkdownString(""); 
+            const mark = new MarkdownString("&emsp;事件&emsp;&emsp;|&emsp;&emsp;类型&emsp;&emsp;|&emsp;&emsp;说明&emsp;"); 
             const apiDetail = mark.appendCodeblock(params_Event[word],'typescript');
             return new vscode.Hover(apiDetail);
         }
@@ -31,12 +31,12 @@ function provideHover(document:any, position:any, token:any) {
         const params = components[linelastcomname];
         const params_Event = componentEvent[linelastcomname];
         if(params[word]){
-            const mark = new MarkdownString(""); 
+            const mark = new MarkdownString("&emsp;参数&emsp;|&emsp;类型&emsp;|&emsp;默认&emsp;|&emsp;说明&emsp;"); 
             const apiDetail = mark.appendCodeblock(params[word],'typescript');
             return new vscode.Hover(apiDetail);
 
         }else{
-            const mark = new MarkdownString(""); 
+            const mark = new MarkdownString("&emsp;事件&emsp;&emsp;|&emsp;&emsp;类型&emsp;&emsp;|&emsp;&emsp;说明&emsp;"); 
             const apiDetail = mark.appendCodeblock(params_Event[word],'typescript');
             return new vscode.Hover(apiDetail);
         }
