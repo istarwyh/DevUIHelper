@@ -7,9 +7,9 @@ All notable changes to the "devui" extension will be documented in this file.
 - `Removed` for now removed features.
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
-## Changes between Langohr 1.0.4 (Mar 28th, 2020)
+## Changes between DevUIHelper 1.0.4 and DevUIHelper 1.0.5 (Mar 28th, 2020)
 - `Changed` icon becomes more beautiful
 - `Added` after the completion the cursor keeps in the center of ``""``
-## Changes between Langohr 1.0.4 (Mar 28th, 2020)
+## DevUIHelper 1.0.4 (Mar 28th, 2020)
 
 - Initial release
