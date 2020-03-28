@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-03-27 19:34:32
+ * @LastEditTime: 2020-03-28 10:19:58
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \DevUIHelper\src\hoverCompletion.ts
+ */
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode_1 = require("vscode");
@@ -30,7 +38,7 @@ function provideCompletionItems(document, position) {
                 // params[prop]就是label对应的api细节部分
                 completionItem.documentation = mark.appendCodeblock(params[prop], 'typescript');
                 // TODO:如何控制光标在补全后后移一位进入""中? 
-                completionItem.insertText = "[" + prop + "]=\"\"";
+                completionItem.insertText = new vscode_1.SnippetString("[" + prop + "]=\"${1:}\"");
                 completionItem.preselect = true;
                 return completionItem;
             });

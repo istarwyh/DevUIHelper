@@ -1,7 +1,15 @@
+/*
+ * @Author: your name
+ * @Date: 2020-03-27 19:34:32
+ * @LastEditTime: 2020-03-28 10:19:58
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \DevUIHelper\src\hoverCompletion.ts
+ */
 'use strict';
 import {
     window, commands, Disposable, ExtensionContext, StatusBarAlignment, StatusBarItem, TextDocument,
-    languages, CompletionItem, Position, CompletionItemKind, Range, TextEdit, MarkdownString
+    languages, CompletionItem, Position, CompletionItemKind, Range, TextEdit, MarkdownString, SnippetString
 } from 'vscode';
 // 下面这个语句导入一个文件夹模块,入口在index
 import components from './params';
@@ -37,7 +45,7 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
                 // params[prop]就是label对应的api细节部分
                 completionItem.documentation = mark.appendCodeblock(params[prop],'typescript');
                 // TODO:如何控制光标在补全后后移一位进入""中? 
-                completionItem.insertText = "["+prop+"]=\"\"";
+                completionItem.insertText =new SnippetString("["+prop+"]=\"${1:}\"") ;
                 completionItem.preselect = true;
                 return completionItem;
             });
