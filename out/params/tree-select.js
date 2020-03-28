@@ -1,5 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/*
+ * @Author: your name
+ * @Date: 2020-03-27 19:34:32
+ * @LastEditTime: 2020-03-28 10:28:35
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \DevUIHelper\src\params\tree-select.ts
+ */
 exports.default = {
     placeholder: '|string|--|可选，占位字符串|',
     disabled: '|boolean|false|可选，禁止输入态|',
