@@ -1,1 +1,1 @@
-{"version":3,"file":"panel.js","sourceRoot":"","sources":["../../src/params_Event/panel.ts"],"names":[],"mappings":";;AAAA,kBAAc,EACb,CAAC"}
+{"version":3,"file":"panel.js","sourceRoot":"","sources":["../../src/params_Event/panel.ts"],"names":[],"mappings":";;AAAA,kBAAc;IACV,MAAM,EAAC,gEAAgE;CAC1E,CAAC"}
