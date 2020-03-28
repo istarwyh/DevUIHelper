@@ -7,6 +7,7 @@ All notable changes to the "devui" extension will be documented in this file.
 - `Removed` for now removed features.
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
+
 ## Changes between DevUIHelper 1.0.5 and DevUIHelper 1.0.8 (Mar 28th, 2020)
 - `Fixed` support Hover when go to the next line
 - `Added` Hover title 
