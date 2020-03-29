@@ -1,17 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/*
+ * @Author: your name
+ * @Date: 2020-03-27 19:34:32
+ * @LastEditTime: 2020-03-29 16:49:21
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \DevUIHelper\src\extension.ts
+ */
 const vscode = require("vscode");
 function activate(context) {
     // 跳转到定义,angualr已通过语法树实现
     // require('./jump-to-definition')(context);
     // 悬浮提示api
     require('./hover')(context);
-    //悬浮提示api细节
-    require('./hoverApiDetail')(context);
+    // //悬浮提示api细节
+    // require('./hoverApiDetail')(context);
     // API提示与补全
-    require('./hoverCompletion')(context);
-    // 悬浮事件提示
-    require('./hoverEvent')(context);
+    require('./completion')(context);
+    // // 悬浮事件提示
+    // require('./hoverEvent')(context);
     // 跳转到文件上部或下部
     require('./move')(context);
     // 从远程获取vscode的相关信息

@@ -1,9 +1,18 @@
 "use strict";
+/*
+ * @Author: your name
+ * @Date: 2020-03-27 19:34:32
+ * @LastEditTime: 2020-03-29 09:47:26
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \DevUIHelper\src\util\getName.ts
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 function getName(text, componentRegex) {
     text.match(componentRegex);
     const n = RegExp.$1.substring(2);
-    const nam = n.replace(n[0], n[0].toUpperCase()); //匹配之后对字符串处理然后匹配导出的模块
+    // const nam = n.replace(n[0],n[0].toUpperCase());//匹配之后对字符串处理然后匹配导出的模块
+    const nam = n; //匹配之后对字符串处理然后匹配导出的模块
     let name;
     if (nam.indexOf("-") !== -1) {
         name = capitalize(nam);

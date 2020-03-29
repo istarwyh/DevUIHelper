@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-03-27 19:34:32
+ * @LastEditTime: 2020-03-29 16:49:21
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \DevUIHelper\src\extension.ts
+ */
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
@@ -8,14 +16,14 @@ export function activate(context: vscode.ExtensionContext) {
 	// 悬浮提示api
 	require('./hover')(context);
 
-	//悬浮提示api细节
-	require('./hoverApiDetail')(context);
+	// //悬浮提示api细节
+	// require('./hoverApiDetail')(context);
 
 	// API提示与补全
-	require('./hoverCompletion')(context);
+	require('./completion')(context);
 
-	// 悬浮事件提示
-	require('./hoverEvent')(context);
+	// // 悬浮事件提示
+	// require('./hoverEvent')(context);
 
 	// 跳转到文件上部或下部
 	require('./move')(context);

@@ -1,8 +1,17 @@
-
+/*
+ * @Author: your name
+ * @Date: 2020-03-29 11:52:31
+ * @LastEditTime: 2020-03-29 16:30:21
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \DevUIHelper\src\util.ts
+ */
+import {CompletionItemKind}from 'vscode';
 export function getName(text: string,componentRegex: RegExp){
     text.match(componentRegex);
     const n = RegExp.$1.substring(2);
-    const nam = n.replace(n[0],n[0].toUpperCase());//匹配之后对字符串处理然后匹配导出的模块
+    // const nam = n.replace(n[0],n[0].toUpperCase());//匹配之后对字符串处理然后匹配导出的模块
+    const nam = n;//匹配之后对字符串处理然后匹配导出的模块
     let name: string;
     if (nam.indexOf("-") !== -1){
         name = capitalize(nam);
@@ -12,6 +21,17 @@ export function getName(text: string,componentRegex: RegExp){
     // console.log("name: " + name);
     return name;
 
+}
+export function getAttrName(text:string):string|undefined{
+    if(text.startsWith("[")){
+        return text.match(/\[(\S*)\]/)?.toString();
+    }
+    if(text.startsWith("(")){
+        return text.match(/\((\S*)\)/)?.toString();
+    }
+    else{
+        return text;
+    }
 }
 export function word2Name(word: string){
     const n  = word.substring(2);
@@ -36,4 +56,10 @@ function capitalize(string: string){
     }
     // join() 方法用于把数组中的所有元素放入一个字符串
     return words.join("");
+}
+export function autoIcon(type:CompletionItemKind):string{
+    switch(type){
+        default:
+            return "$(array)";
+    }
 }
