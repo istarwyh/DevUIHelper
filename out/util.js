@@ -1,97 +1,64 @@
 "use strict";
-const fs = require('fs');
-const os = require('os');
-const path = require('path');
-const vscode = require('vscode');
-const exec = require('child_process').exec;
-const util = {
-    /**
-     * 获取当前所在工程根目录，有3种使用方法：<br>
-     * getProjectPath(uri) uri 表示工程内某个文件的路径<br>
-     * getProjectPath(document) document 表示当前被打开的文件document对象<br>
-     * getProjectPath() 会自动从 activeTextEditor 拿document对象，如果没有拿到则报错
-     * @param {*} document
-     */
-    getProjectPath(document) {
-        if (!document) {
-            document = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.document : null;
-        }
-        if (!document) {
-            this.showError('当前激活的编辑器不是文件或者没有文件被打开！');
-            return '';
-        }
-        const currentFile = (document.uri ? document.uri : document).fsPath;
-        let projectPath = null;
-        let workspaceFolders = vscode.workspace.workspaceFolders.map((item) => item.uri.path);
-        // 由于存在Multi-root工作区，暂时没有特别好的判断方法，先这样粗暴判断
-        // 如果发现只有一个根文件夹，读取其子文件夹作为 workspaceFolders
-        // tslint:disable-next-line: triple-equals
-        if (workspaceFolders.length == 1 && workspaceFolders[0] === vscode.workspace.rootPath) {
-            const rootPath = workspaceFolders[0];
-            var files = fs.readdirSync(rootPath);
-            workspaceFolders = files.filter((name) => !/^\./g.test(name)).map((name) => path.resolve(rootPath, name));
-            // vscode.workspace.rootPath会不准确，且已过时
-            // return vscode.workspace.rootPath + '/' + this._getProjectName(vscode, document);
-        }
-        workspaceFolders.forEach((folder) => {
-            if (currentFile.indexOf(folder) === 0) {
-                projectPath = folder;
-            }
-        });
-        if (!projectPath) {
-            this.showError('获取工程根路径异常！');
-            return '';
-        }
-        return projectPath;
-    },
-    /**
-     * 获取当前工程名
-     */
-    getProjectName: function (projectPath) {
-        return path.basename(projectPath);
-    },
-    getPluginPath() {
-    },
-    /**
-     * 将一个单词首字母大写并返回
-     * @param {*} word 某个字符串
-     */
-    upperFirstLetter: function (word) {
-        return (word || '').replace(/^\w/, (m) => m.toUpperCase());
-    },
-    /**
-     * 将一个单词首字母转小写并返回
-     * @param {*} word 某个字符串
-     */
-    lowerFirstLeter: function (word) {
-        return (word || '').replace(/^\w/, (m) => m.toLowerCase());
-    },
-    /**
-     * 全局日志开关，发布时可以注释掉日志输出
-     */
-    log: function (...args) {
-        console.log(...args);
-    },
-    /**
-     * 全局日志开关，发布时可以注释掉日志输出
-     */
-    error: function (...args) {
-        console.error(...args);
-    },
-    /**
-     * 弹出错误信息
-     */
-    showError: function (info) {
-        vscode.window.showErrorMessage(info);
-    },
-    /**
-     * 弹出提示信息
-     */
-    showInfo: function (info) {
-        vscode.window.showInformationMessage(info);
-    },
-    findStrInFolder: function (folderPath, str) {
+Object.defineProperty(exports, "__esModule", { value: true });
+function getName(text, componentRegex) {
+    text.match(componentRegex);
+    const n = RegExp.$1.substring(2);
+    // const nam = n.replace(n[0],n[0].toUpperCase());//匹配之后对字符串处理然后匹配导出的模块
+    const nam = n; //匹配之后对字符串处理然后匹配导出的模块
+    let name;
+    if (nam.indexOf("-") !== -1) {
+        name = capitalize(nam);
     }
-};
-module.exports = util;
+    else {
+        name = nam;
+    }
+    // console.log("name: " + name);
+    return name;
+}
+exports.getName = getName;
+function getAttrName(text) {
+    var _a, _b;
+    if (text.startsWith("[")) {
+        return (_a = text.match(/\[(\S*)\]/)) === null || _a === void 0 ? void 0 : _a.toString();
+    }
+    if (text.startsWith("(")) {
+        return (_b = text.match(/\((\S*)\)/)) === null || _b === void 0 ? void 0 : _b.toString();
+    }
+    else {
+        return text;
+    }
+}
+exports.getAttrName = getAttrName;
+function word2Name(word) {
+    const n = word.substring(2);
+    const nam = n.replace(n[0], n[0].toUpperCase()); //匹配之后对字符串处理然后匹配导出的模块
+    let name;
+    if (nam.indexOf("-") !== -1) {
+        name = capitalize(nam);
+    }
+    else {
+        name = nam;
+    }
+    return name;
+}
+exports.word2Name = word2Name;
+function capitalize(string) {
+    // split() 方法用于把一个字符串分割成字符串数组。
+    var words = string.split("-");
+    for (var i = 0; i < words.length; i++) {
+        // charAt() 方法可返回指定位置的字符。
+        // slice() 方法可从已有的数组中返回选定的元素。
+        words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+        // 第一个单词的第一个字母转化为大写，然后再将该单词的后面字母使用slice()接上即可。
+    }
+    // join() 方法用于把数组中的所有元素放入一个字符串
+    return words.join("");
+}
+function autoIcon(type) {
+    switch (type) {
+        default:
+            return "$(array)";
+    }
+}
+exports.autoIcon = autoIcon;
 //# sourceMappingURL=util.js.map

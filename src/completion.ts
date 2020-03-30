@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-03-29 18:45:38
+ * @LastEditTime: 2020-03-30 20:03:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \DevUIHelper\src\hoverCompletion.ts
@@ -12,7 +12,11 @@ import {TextDocument,languages, CompletionItem, Position, CompletionItemKind, Ra
 import { getName } from './util';
 import { htmlSource, Attribute } from './html_info';
 
-const completionTriggerChars = [" ", "\n"];  
+const completionTriggerChars = [" ", "\n"]; 
+const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
+const attributeValue= /=\"[\s\S]*?\"/g;
+// const attributeValue1= /=\"[\S*]/g;
+// const attributeValue2= /[\S*]\" /g;
 
 
 function  provideCompletionItems(document: TextDocument, position: Position): CompletionItem[] {
@@ -23,8 +27,7 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
     // const importRegex = /import[\s\S]*from\s'@angular\/core'/g;
 
     //devui的使用以d-开头,如d-button.值得一提的是这个在正则表达式的测试中是null.
-  
-    const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
+
     
     // console.log(componentRegex);// componentRegex是一个Object?
     if (componentRegex.test(text)) { 
@@ -34,16 +37,18 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
 
         if (element) {
             const properties = element.getAttributes();
+            if(checkCursorInValue(document,position)){          
             // 回调函数循环将prop对应的details提取出来
             const completionItems = properties.map((prop) => {
                 const completionItem = createAttritubeCompletionItems(prop);
                 return completionItem;
             });
             return completionItems;
+            }else{
+                return [];
+            }
         }
-         return createElementCompletionItems(); 
-
-        
+         return createElementCompletionItems();      
     }
     return [];
 }
@@ -57,6 +62,14 @@ function createElementCompletionItems():CompletionItem[]{
         console.log("d-"+element);
         return new CompletionItem("d-"+element,CompletionItemKind.Class);
     });
+}
+function checkCursorInValue(document:TextDocument,position : Position):boolean{
+    const attrWord:string  = document.getText(document.getWordRangeAtPosition(position));
+    // console.log(attrWord);
+        if(attributeValue.test(attrWord)){
+        return false;
+    }
+    return true;
 }
 /**
  * 提供属性补全
@@ -74,7 +87,7 @@ function createAttritubeCompletionItems(prop:Attribute):CompletionItem{
     const TITLE = new MarkdownString("|&emsp;类型&emsp;|&emsp;默认&emsp;|&emsp;说明&emsp;"); 
     completionItem.documentation = TITLE.appendCodeblock(prop.getDescription(),'typescript');
     
-    console.log(prop);
+    // console.log("true");
     /**
      * 依据不同的类型提供不同的提示。
      */

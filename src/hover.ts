@@ -6,8 +6,7 @@
  * @Description: In User Settings Edit
  * @FilePath: \DevUIHelper\src\hover.ts
  */
-import {Position,Hover,languages, TextDocument, CancellationToken, ProviderResult,Range} from 'vscode';
-import { MarkdownString } from 'vscode';
+import {Position,Hover,languages, TextDocument, CancellationToken, ProviderResult,Range,MarkdownString} from 'vscode';
 import {word2Name, getAttrName} from './util';
 import { htmlSource }from './html_info';
 //TODO:怎么显示icon才比较舒适? V2.0

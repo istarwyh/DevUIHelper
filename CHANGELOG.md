@@ -1,12 +1,20 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-03-30 07:54:11
+ * @LastEditTime: 2020-03-30 18:20:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \DevUIHelper\CHANGELOG.md
  -->
 # Change Log
+
+# V2.1.0
+
+### 更新的功能点：
+- 修复了在属性值引号内也会进行提示的BUG。
+
+### 暂时存在的问题：
+- 但引发了一个更为有趣的BUG
 
 # V2.0.0
 
