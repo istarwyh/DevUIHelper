@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-04-03 17:28:13
+ * @LastEditTime: 2020-04-03 18:17:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \DevUIHelper\src\hoverCompletion.ts
@@ -37,18 +37,22 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
 
         if (element) {
             const properties = element.getAttributes();
+            console.log(checkCursorInValue(document,position))
             if(!checkCursorInValue(document,position)){          
             // 回调函数循环将prop对应的details提取出来
-            const completionItems = properties.map((prop) => {
-                const completionItem = createAttritubeCompletionItems(prop);
-                return completionItem;
-            });
-            return completionItems;
+                const completionItems = properties.map((prop) => {
+                    const completionItem = createAttritubeCompletionItems(prop);
+                    return completionItem;
+                });
+                return completionItems;
             }
-            /* 提示valueSet*/            
-            else{
-                console.log(getCurrentAttr(document,position))
-                return element.getAttribute(getCurrentAttr(document,position)).getValueSet().map(word=>{
+            if(checkCursorInValue(document,position)){
+                console.log("hello")
+                const attr = document.getText(document.getWordRangeAtPosition(position));
+                console.log(attr);
+                const attribute = element?.getAttribute(attr);
+                console.log(attribute);
+                return attribute.getValueSet().map(word=>{
                     return new CompletionItem(word,CompletionItemKind.Variable)
                 });
             }
@@ -69,12 +73,10 @@ function createElementCompletionItems():CompletionItem[]{
     });
 }
 //TODO : 将以下两个函数合成一个函数
-function checkCursorInValue(document:TextDocument, position:Position) {
-    const attrWordInLine = document.getText(document.getWordRangeAtPosition(position)).split(" ");
-
-    const attrWord =attrWordInLine[attrWordInLine.length-1];
-    console.log(attrWord);
-    if (attributeValue.test(attrWord)) {
+function checkCursorInValue(document:TextDocument,position : Position):boolean{
+    const attrWord:string  = document.getText(document.getWordRangeAtPosition(position));
+    // console.log(attrWord);
+        if(attributeValue.test(attrWord)){
         return true;
     }
     return false;

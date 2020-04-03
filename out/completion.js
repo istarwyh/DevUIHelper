@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /*
  * @Author: your name
  * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-04-03 17:28:13
+ * @LastEditTime: 2020-04-03 18:17:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \DevUIHelper\src\hoverCompletion.ts
@@ -19,6 +19,7 @@ const attributeValue = /=\"[\s\S]*?\"/g;
 // const attributeValue1= /=\"[\S*]/g;
 // const attributeValue2= /[\S*]\" /g;
 function provideCompletionItems(document, position) {
+    var _a;
     const start = new vscode_1.Position(0, 0);
     const range = new vscode_1.Range(start, position);
     const text = document.getText(range);
@@ -33,6 +34,7 @@ function provideCompletionItems(document, position) {
         // console.log(getName(text,componentRegex));
         if (element) {
             const properties = element.getAttributes();
+            console.log(checkCursorInValue(document, position));
             if (!checkCursorInValue(document, position)) {
                 // 回调函数循环将prop对应的details提取出来
                 const completionItems = properties.map((prop) => {
@@ -41,10 +43,13 @@ function provideCompletionItems(document, position) {
                 });
                 return completionItems;
             }
-            /* 提示valueSet*/
-            else {
-                console.log(getCurrentAttr(document, position));
-                return element.getAttribute(getCurrentAttr(document, position)).getValueSet().map(word => {
+            if (checkCursorInValue(document, position)) {
+                console.log("hello");
+                const attr = document.getText(document.getWordRangeAtPosition(position));
+                console.log(attr);
+                const attribute = (_a = element) === null || _a === void 0 ? void 0 : _a.getAttribute(attr);
+                console.log(attribute);
+                return attribute.getValueSet().map(word => {
                     return new vscode_1.CompletionItem(word, vscode_1.CompletionItemKind.Variable);
                 });
             }
@@ -65,9 +70,8 @@ function createElementCompletionItems() {
 }
 //TODO : 将以下两个函数合成一个函数
 function checkCursorInValue(document, position) {
-    const attrWordInLine = document.getText(document.getWordRangeAtPosition(position)).split(" ");
-    const attrWord = attrWordInLine[attrWordInLine.length - 1];
-    console.log(attrWord);
+    const attrWord = document.getText(document.getWordRangeAtPosition(position));
+    // console.log(attrWord);
     if (attributeValue.test(attrWord)) {
         return true;
     }

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-04-03 17:53:55
+ * @LastEditTime: 2020-04-03 18:06:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \DevUIHelper\src\hover.ts
@@ -50,10 +50,10 @@ function provideHover(document:TextDocument,
         // console.log(element);
         const attr = document.getText(document.getWordRangeAtPosition(position));
         // console.log(attr);
-
         const attribute = element?.getAttribute(attr);
         if(attribute){
-            hoverContent.appendCodeblock("Description:"+ attribute.getDescription()+"\nType:"+attribute.getValueType()+"\nDefaultValue:"+attribute.getDefaultValue(),'typescript');
+            const valueSet=  attribute.getValueSet()==[]?"any":attribute.getValueSet();
+            hoverContent.appendCodeblock("Description:"+ attribute.getDescription()+"\nType:"+attribute.getValueType()+"\nDefaultValue:"+attribute.getDefaultValue()+"\nValueSet:"+valueSet,'typescript');
         }
 
     }

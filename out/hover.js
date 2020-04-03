@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /*
  * @Author: your name
  * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-04-03 17:53:55
+ * @LastEditTime: 2020-04-03 18:06:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \DevUIHelper\src\hover.ts
@@ -22,7 +22,6 @@ const util_2 = require("./util");
 const DEVUIREGEX = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
 const TITLE = "";
 function provideHover(document, position, token) {
-    var _a;
     const word = document.getText(document.getWordRangeAtPosition(position));
     const element = html_info_1.htmlSource.findElement(util_1.word2Name(word));
     const hoverContent = new vscode_1.MarkdownString("", true);
@@ -50,9 +49,10 @@ function provideHover(document, position, token) {
         // console.log(element);
         const attr = document.getText(document.getWordRangeAtPosition(position));
         // console.log(attr);
-        const attribute = (_a = element) === null || _a === void 0 ? void 0 : _a.getAttribute(attr);
+        const attribute = element === null || element === void 0 ? void 0 : element.getAttribute(attr);
         if (attribute) {
-            hoverContent.appendCodeblock("Description:" + attribute.getDescription() + "\nType:" + attribute.getValueType() + "\nDefaultValue:" + attribute.getDefaultValue(), 'typescript');
+            const valueSet = attribute.getValueSet() == [] ? "any" : attribute.getValueSet();
+            hoverContent.appendCodeblock("Description:" + attribute.getDescription() + "\nType:" + attribute.getValueType() + "\nDefaultValue:" + attribute.getDefaultValue() + "\nValueSet:" + valueSet, 'typescript');
         }
     }
     return new vscode_1.Hover(hoverContent);
