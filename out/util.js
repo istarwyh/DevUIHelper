@@ -19,10 +19,10 @@ exports.getName = getName;
 function getAttrName(text) {
     var _a, _b;
     if (text.startsWith("[")) {
-        return (_a = text.match(/\[(\S*)\]/)) === null || _a === void 0 ? void 0 : _a.toString();
+        return (_a = text.match(/\[(\S*)\]/)) === null || _a === void 0 ? void 0 : _a.toString().toLowerCase();
     }
     if (text.startsWith("(")) {
-        return (_b = text.match(/\((\S*)\)/)) === null || _b === void 0 ? void 0 : _b.toString();
+        return (_b = text.match(/\((\S*)\)/)) === null || _b === void 0 ? void 0 : _b.toString().toLowerCase();
     }
     else {
         return text;

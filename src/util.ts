@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-29 11:52:31
- * @LastEditTime: 2020-03-29 16:30:21
+ * @LastEditTime: 2020-04-03 17:45:16
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \DevUIHelper\src\util.ts
@@ -24,10 +24,10 @@ export function getName(text: string,componentRegex: RegExp){
 }
 export function getAttrName(text:string):string|undefined{
     if(text.startsWith("[")){
-        return text.match(/\[(\S*)\]/)?.toString();
+        return text.match(/\[(\S*)\]/)?.toString().toLowerCase();
     }
     if(text.startsWith("(")){
-        return text.match(/\((\S*)\)/)?.toString();
+        return text.match(/\((\S*)\)/)?.toString().toLowerCase();
     }
     else{
         return text;

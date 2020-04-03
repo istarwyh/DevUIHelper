@@ -1,16 +1,16 @@
 /*
  * @Author: your name
  * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-03-30 20:03:58
+ * @LastEditTime: 2020-04-03 17:28:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \DevUIHelper\src\hoverCompletion.ts
  */
-'use strict';
+// 'use strict';
 import {TextDocument,languages, CompletionItem, Position, CompletionItemKind, Range,MarkdownString, SnippetString} from 'vscode';
 // 下面这个语句导入一个文件夹模块,入口在index
 import { getName } from './util';
-import { htmlSource, Attribute } from './html_info';
+import { htmlSource, Attribute, Element } from './html_info';
 
 const completionTriggerChars = [" ", "\n"]; 
 const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
@@ -28,24 +28,29 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
 
     //devui的使用以d-开头,如d-button.值得一提的是这个在正则表达式的测试中是null.
 
-    
     // console.log(componentRegex);// componentRegex是一个Object?
     if (componentRegex.test(text)) { 
         // console.log(text);
-        const element = htmlSource.findElement(getName(text,componentRegex));
+        const elementName = getName(text,componentRegex)
+        const element = htmlSource.findElement(elementName);
         // console.log(getName(text,componentRegex));
 
         if (element) {
             const properties = element.getAttributes();
-            if(checkCursorInValue(document,position)){          
+            if(!checkCursorInValue(document,position)){          
             // 回调函数循环将prop对应的details提取出来
             const completionItems = properties.map((prop) => {
                 const completionItem = createAttritubeCompletionItems(prop);
                 return completionItem;
             });
             return completionItems;
-            }else{
-                return [];
+            }
+            /* 提示valueSet*/            
+            else{
+                console.log(getCurrentAttr(document,position))
+                return element.getAttribute(getCurrentAttr(document,position)).getValueSet().map(word=>{
+                    return new CompletionItem(word,CompletionItemKind.Variable)
+                });
             }
         }
          return createElementCompletionItems();      
@@ -59,18 +64,40 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
  */
 function createElementCompletionItems():CompletionItem[]{
     return Object.keys(htmlSource.schema).map(element=>{
-        console.log("d-"+element);
+        // console.log("d-"+element);
         return new CompletionItem("d-"+element,CompletionItemKind.Class);
     });
 }
-function checkCursorInValue(document:TextDocument,position : Position):boolean{
-    const attrWord:string  = document.getText(document.getWordRangeAtPosition(position));
-    // console.log(attrWord);
-        if(attributeValue.test(attrWord)){
-        return false;
+//TODO : 将以下两个函数合成一个函数
+function checkCursorInValue(document:TextDocument, position:Position) {
+    const attrWordInLine = document.getText(document.getWordRangeAtPosition(position)).split(" ");
+
+    const attrWord =attrWordInLine[attrWordInLine.length-1];
+    console.log(attrWord);
+    if (attributeValue.test(attrWord)) {
+        return true;
     }
-    return true;
+    return false;
 }
+function getCurrentAttr(document:TextDocument,position:Position):string{
+    const attrWord = document.getText(document.getWordRangeAtPosition(position));
+    return attrWord.split("=")[0];
+}
+// function checkCursorInValue(document:TextDocument,element:Element,position : Position):CompletionItem[]{
+//     const attrWord:string  = document.getText(document.getWordRangeAtPosition(position));
+//     // console.log(attrWord);
+//         if(attributeValue.test(attrWord)){
+//             let currentAttr = attrWord;
+//             if(attrWord.includes("=")){
+//                  currentAttr = attrWord.substring(0,attrWord.indexOf("="))
+//             }
+//             return element.getAttribute(currentAttr).getValueSet().map(word=>{
+//                 return new CompletionItem(word,CompletionItemKind.Variable)
+//             });
+//     }
+//     return [];
+// }
+
 /**
  * 提供属性补全
  * @param prop 
@@ -84,8 +111,8 @@ function createAttritubeCompletionItems(prop:Attribute):CompletionItem{
                                     prop.getName(), 
                                     prop.getcompletionKind());
     // params[prop]就是label对应的api细节部分
-    const TITLE = new MarkdownString("|&emsp;类型&emsp;|&emsp;默认&emsp;|&emsp;说明&emsp;"); 
-    completionItem.documentation = TITLE.appendCodeblock(prop.getDescription(),'typescript');
+    const TITLE = new MarkdownString(""); 
+    completionItem.documentation = TITLE.appendCodeblock("Description:"+ prop.getSortDescription()+"\nType:"+prop.getValueType()+"\nDefaultValue:"+prop.getDefaultValue(),'typescript');
     
     // console.log("true");
     /**
