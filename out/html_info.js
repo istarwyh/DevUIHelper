@@ -86,10 +86,10 @@ class CParams {
                 // console.log(_elementName);
                 const _element = this.schema[_elementName];
                 if (_element.getAttribute(parts[0])) {
-                    console.log(_element.getName());
+                    // console.log(_element.getName()); 
                 }
                 if (_element) {
-                    _element.addAttritube(new Attribute(parts[0].toLocaleLowerCase(), parts[1], parts[2], parts[3], parts[4], parts[5] == "true" ? true : false, parts[6] == "true" ? true : false, parts[7].substring(1, parts[7].length - 1).replace(" ", "").split(","), this.changeToCompletionKind(parts[1], parts[6])));
+                    _element.addAttritube(new Attribute(parts[0].toLocaleLowerCase(), parts[1], parts[2], parts[3], parts[4], parts[5] === "true" ? true : false, parts[6] === "true" ? true : false, parts[7].substring(1, parts[7].length - 1).replace(" ", "").split(","), this.changeToCompletionKind(parts[1], parts[6])));
                     // console.log(_element.getAttributes()); 
                 }
                 else {
@@ -106,8 +106,9 @@ class CParams {
         if (isEvent === "true") {
             return vscode_1.CompletionItemKind.Function;
         }
-        if (type.includes("arrray") || type.includes("[]"))
+        if (type.includes("arrray") || type.includes("[]")) {
             return vscode_1.CompletionItemKind.Enum;
+        }
         switch (type) {
             case STRING:
                 return vscode_1.CompletionItemKind.Text;

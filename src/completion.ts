@@ -13,9 +13,10 @@ import { getName } from './util';
 import { htmlSource, Attribute, Element } from './html_info';
 
 const completionTriggerChars = [" ", "\n"]; 
+//devui的使用以d-开头,如d-button.值得一提的是这个在正则表达式的测试中是null.
 const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
 // TODO:不能稳定识别"
-const attributeValue= /=\"[\s\S]*?\"/g;
+const attributeValue= /^=\"[\s\S]*\"(?! )/;
 // const attributeValue1= /=\"[\S*]/g;
 // const attributeValue2= /[\S*]\" /g;
 
@@ -27,18 +28,13 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
     // 不匹配import方式引入,因为使用devui的时候这两个不在一个文件当中
     // const importRegex = /import[\s\S]*from\s'@angular\/core'/g;
 
-    //devui的使用以d-开头,如d-button.值得一提的是这个在正则表达式的测试中是null.
-
-    // console.log(componentRegex);// componentRegex是一个Object?
     if (componentRegex.test(text)) { 
         // console.log(text);
         const elementName = getName(text,componentRegex);
         const element = htmlSource.findElement(elementName);
-        // console.log(getName(text,componentRegex));
 
         if (element) {
             const properties = element.getAttributes();
-            console.log(checkCursorInValue(document,position));
             if(!checkCursorInValue(document,position)){          
             // 回调函数循环将prop对应的details提取出来
                 const completionItems = properties.map((prop) => {
@@ -48,11 +44,10 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
                 return completionItems;
             }
             if(checkCursorInValue(document,position)){
-                console.log("hello");
                 const attr = document.getText(document.getWordRangeAtPosition(position));
-                console.log(attr);
+                // console.log(attr);
                 const attribute = element?.getAttribute(attr);
-                console.log(attribute);
+                // console.log(attribute);
                 return attribute.getValueSet().map(word=>{
                     return new CompletionItem(word,CompletionItemKind.Variable);
                 });
@@ -75,12 +70,12 @@ function createElementCompletionItems():CompletionItem[]{
 }
 //TODO : 将以下两个函数合成一个函数
 function checkCursorInValue(document:TextDocument,position : Position):boolean{
-    const attrWord:string  = document.getText(document.getWordRangeAtPosition(position));
-    // console.log("<>"+attrWord);
-    if(attributeValue.test(attrWord)){
-        return true;
-    }
-    return false;
+    const line = document.lineAt(position);
+    const tmp = line.text;
+    // let tmp:string  = document.getText(document.getWordRangeAtPosition(position));
+    const attrWord = tmp.substring(tmp.indexOf("="));
+    console.log("==="+attrWord+"==="+attributeValue.test(attrWord));
+    return attributeValue.test(attrWord);
 }
 function getCurrentAttr(document:TextDocument,position:Position):string{
     const attrWord = document.getText(document.getWordRangeAtPosition(position));

@@ -40,8 +40,8 @@ export class Attribute implements Node{
     getDescription(){return this.description;}
     getcompletionKind(){return this.completionKind;}
     getValueType(){return this.type;}
-    getDefaultValue(){return this.defaultValue}
-    getValueSet(){return this.valueSet}
+    getDefaultValue(){return this.defaultValue;}
+    getValueSet(){return this.valueSet;}
 }
 export class Element implements Node {
     private attributeMap = <{[attrName:string]:Attribute}>{}
@@ -99,9 +99,10 @@ export class CParams{
                 // console.log(_elementName);
             }else{
                 // console.log(_elementName);
-                const _element = this.schema[_elementName]
+                const _element = this.schema[_elementName];
                 if(_element.getAttribute(parts[0])){
-                    console.log(_element.getName()) }
+                    // console.log(_element.getName()); 
+                }
                 if(_element){
                     _element.addAttritube(new Attribute(
                         parts[0].toLocaleLowerCase(),
@@ -109,8 +110,8 @@ export class CParams{
                         parts[2],
                         parts[3],
                         parts[4],
-                        parts[5]=="true"?true:false,
-                        parts[6]=="true"?true:false,
+                        parts[5]==="true"?true:false,
+                        parts[6]==="true"?true:false,
                         parts[7].substring(1,parts[7].length-1).replace(" ","").split(","),
                         this.changeToCompletionKind(parts[1],parts[6])
                     ));
@@ -129,8 +130,9 @@ export class CParams{
         if(isEvent==="true"){
             return CompletionItemKind.Function;
         }
-        if(type.includes("arrray")||type.includes("[]"))
+        if(type.includes("arrray")||type.includes("[]")) {
             return CompletionItemKind.Enum;
+        }
         switch(type){
             case STRING:
                 return CompletionItemKind.Text;
