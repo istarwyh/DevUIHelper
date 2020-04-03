@@ -14,6 +14,7 @@ import { htmlSource, Attribute, Element } from './html_info';
 
 const completionTriggerChars = [" ", "\n"]; 
 const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
+// TODO:不能稳定识别"
 const attributeValue= /=\"[\s\S]*?\"/g;
 // const attributeValue1= /=\"[\S*]/g;
 // const attributeValue2= /[\S*]\" /g;
@@ -31,13 +32,13 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
     // console.log(componentRegex);// componentRegex是一个Object?
     if (componentRegex.test(text)) { 
         // console.log(text);
-        const elementName = getName(text,componentRegex)
+        const elementName = getName(text,componentRegex);
         const element = htmlSource.findElement(elementName);
         // console.log(getName(text,componentRegex));
 
         if (element) {
             const properties = element.getAttributes();
-            console.log(checkCursorInValue(document,position))
+            console.log(checkCursorInValue(document,position));
             if(!checkCursorInValue(document,position)){          
             // 回调函数循环将prop对应的details提取出来
                 const completionItems = properties.map((prop) => {
@@ -47,13 +48,13 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
                 return completionItems;
             }
             if(checkCursorInValue(document,position)){
-                console.log("hello")
+                console.log("hello");
                 const attr = document.getText(document.getWordRangeAtPosition(position));
                 console.log(attr);
                 const attribute = element?.getAttribute(attr);
                 console.log(attribute);
                 return attribute.getValueSet().map(word=>{
-                    return new CompletionItem(word,CompletionItemKind.Variable)
+                    return new CompletionItem(word,CompletionItemKind.Variable);
                 });
             }
         }
@@ -75,8 +76,8 @@ function createElementCompletionItems():CompletionItem[]{
 //TODO : 将以下两个函数合成一个函数
 function checkCursorInValue(document:TextDocument,position : Position):boolean{
     const attrWord:string  = document.getText(document.getWordRangeAtPosition(position));
-    // console.log(attrWord);
-        if(attributeValue.test(attrWord)){
+    // console.log("<>"+attrWord);
+    if(attributeValue.test(attrWord)){
         return true;
     }
     return false;

@@ -15,6 +15,7 @@ const util_1 = require("./util");
 const html_info_1 = require("./html_info");
 const completionTriggerChars = [" ", "\n"];
 const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
+// TODO:不能稳定识别"
 const attributeValue = /=\"[\s\S]*?\"/g;
 // const attributeValue1= /=\"[\S*]/g;
 // const attributeValue2= /[\S*]\" /g;
@@ -71,7 +72,7 @@ function createElementCompletionItems() {
 //TODO : 将以下两个函数合成一个函数
 function checkCursorInValue(document, position) {
     const attrWord = document.getText(document.getWordRangeAtPosition(position));
-    // console.log(attrWord);
+    // console.log("<>"+attrWord);
     if (attributeValue.test(attrWord)) {
         return true;
     }

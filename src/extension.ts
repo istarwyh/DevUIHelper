@@ -10,20 +10,12 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 
-	// 跳转到定义,angualr已通过语法树实现
-	// require('./jump-to-definition')(context);
-
 	// 悬浮提示api
 	require('./hover')(context);
 
-	// //悬浮提示api细节
-	// require('./hoverApiDetail')(context);
 
 	// API提示与补全
 	require('./completion')(context);
-
-	// // 悬浮事件提示
-	// require('./hoverEvent')(context);
 
 	// 跳转到文件上部或下部
 	require('./move')(context);

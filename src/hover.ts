@@ -32,7 +32,7 @@ function provideHover(document:TextDocument,
     if(element){
         let attritubesInfo:string="";
         const properties = element.getAttributes();
-        hoverContent.appendCodeblock(element.getDescription()+"\n",'typescript')
+        hoverContent.appendCodeblock(element.getDescription()+"\n",'typescript');
         for(let api of properties){
             // attritubesInfo+=(autoIcon(api.getcompletionKind())+'type:'+api.getValueType()+'@params:'+api.getName()+"\n");
             // hoverContent.appendMarkdown(autoIcon(api.getcompletionKind()));
@@ -52,7 +52,7 @@ function provideHover(document:TextDocument,
         // console.log(attr);
         const attribute = element?.getAttribute(attr);
         if(attribute){
-            const valueSet=  attribute.getValueSet()==[]?"any":attribute.getValueSet();
+            const valueSet=  attribute.getValueSet()===[]?"any":attribute.getValueSet();
             hoverContent.appendCodeblock("Description:"+ attribute.getDescription()+"\nType:"+attribute.getValueType()+"\nDefaultValue:"+attribute.getDefaultValue()+"\nValueSet:"+valueSet,'typescript');
         }
 

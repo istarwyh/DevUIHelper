@@ -22,6 +22,7 @@ const util_2 = require("./util");
 const DEVUIREGEX = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
 const TITLE = "";
 function provideHover(document, position, token) {
+    var _a;
     const word = document.getText(document.getWordRangeAtPosition(position));
     const element = html_info_1.htmlSource.findElement(util_1.word2Name(word));
     const hoverContent = new vscode_1.MarkdownString("", true);
@@ -49,9 +50,9 @@ function provideHover(document, position, token) {
         // console.log(element);
         const attr = document.getText(document.getWordRangeAtPosition(position));
         // console.log(attr);
-        const attribute = element === null || element === void 0 ? void 0 : element.getAttribute(attr);
+        const attribute = (_a = element) === null || _a === void 0 ? void 0 : _a.getAttribute(attr);
         if (attribute) {
-            const valueSet = attribute.getValueSet() == [] ? "any" : attribute.getValueSet();
+            const valueSet = attribute.getValueSet() === [] ? "any" : attribute.getValueSet();
             hoverContent.appendCodeblock("Description:" + attribute.getDescription() + "\nType:" + attribute.getValueType() + "\nDefaultValue:" + attribute.getDefaultValue() + "\nValueSet:" + valueSet, 'typescript');
         }
     }
