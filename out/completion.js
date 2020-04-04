@@ -17,7 +17,7 @@ const completionTriggerChars = [" ", "\n"];
 //devui的使用以d-开头,如d-button.值得一提的是这个在正则表达式的测试中是null.
 const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
 // TODO:不能稳定识别"
-const attributeValue = /^=\"[\s\S]*\"(?! )/;
+const attributeValue = /^=\"[\s\S]*\"(?! )|^=\"[\s\S]*\"(?!\>)/;
 // const attributeValue1= /=\"[\S*]/g;
 // const attributeValue2= /[\S*]\" /g;
 function provideCompletionItems(document, position) {
