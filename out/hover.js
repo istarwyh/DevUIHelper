@@ -1,13 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/*
- * @Author: your name
- * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-04-03 18:06:15
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \DevUIHelper\src\hover.ts
- */
 const vscode_1 = require("vscode");
 const util_1 = require("./util");
 const html_info_1 = require("./html_info");

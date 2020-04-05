@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-04-03 18:06:15
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \DevUIHelper\src\hover.ts
- */
 import {Position,Hover,languages, TextDocument, CancellationToken, ProviderResult,Range,MarkdownString} from 'vscode';
 import {word2Name, getAttrName} from './util';
 import { htmlSource }from './html_info';

@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-04-03 18:17:08
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \DevUIHelper\src\hoverCompletion.ts
- */
 // 'use strict';
 import {TextDocument,languages, CompletionItem, Position, CompletionItemKind, Range,MarkdownString, SnippetString} from 'vscode';
 // 下面这个语句导入一个文件夹模块,入口在index
@@ -15,10 +7,8 @@ import { htmlSource, Attribute, Element } from './html_info';
 const completionTriggerChars = [" ", "\n"]; 
 //devui的使用以d-开头,如d-button.值得一提的是这个在正则表达式的测试中是null.
 const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
-// TODO:不能稳定识别"
+// 是否匹配到了"",而不是""和空格或者""和>
 const attributeValue= /^=\"[\s\S]*\"(?! )|^=\"[\s\S]*\"(?!\>)/;
-// const attributeValue1= /=\"[\S*]/g;
-// const attributeValue2= /[\S*]\" /g;
 
 
 function  provideCompletionItems(document: TextDocument, position: Position): CompletionItem[] {

@@ -44,11 +44,11 @@ export class Attribute implements Node{
     getValueSet(){return this.valueSet;}
 }
 export class Element implements Node {
-    private attributeMap = <{[attrName:string]:Attribute}>{}
+    private attributeMap = <{[attrName:string]:Attribute}>{};
     constructor(private name:string,
         private description:string = "",
         private attritubes:Attribute[]=[],
-        ){};
+        ){}
     getElement(s:string):Element|undefined{
         if(s=== this.name){
             return this;
@@ -82,7 +82,7 @@ const NUMBER = "number";
 const STRING = "string";
 const OBJECT = "object";
 const FUNCTION= "function";
-const TEMPLATE="templateref"
+const TEMPLATE="templateref";
 
 export class CParams{
     schema = <{[elementName:string]:Element}>{};

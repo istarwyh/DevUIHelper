@@ -1,25 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/*
- * @Author: your name
- * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-04-03 18:17:08
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \DevUIHelper\src\hoverCompletion.ts
- */
 // 'use strict';
 const vscode_1 = require("vscode");
 // 下面这个语句导入一个文件夹模块,入口在index
 const util_1 = require("./util");
 const html_info_1 = require("./html_info");
 const completionTriggerChars = [" ", "\n"];
-//devui的使用以d-开头,如d-button.值得一提的是这个在正则表达式的测试中是null.
+//devui的使用以d-开头,如d-button.值得一提的是这个在正则表达式的测试中是nu   ll.
 const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
 // TODO:不能稳定识别"
 const attributeValue = /^=\"[\s\S]*\"(?! )|^=\"[\s\S]*\"(?!\>)/;
-// const attributeValue1= /=\"[\S*]/g;
-// const attributeValue2= /[\S*]\" /g;
 function provideCompletionItems(document, position) {
     var _a;
     const start = new vscode_1.Position(0, 0);

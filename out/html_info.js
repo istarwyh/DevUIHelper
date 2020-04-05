@@ -34,7 +34,6 @@ class Element {
         this.attritubes = attritubes;
         this.attributeMap = {};
     }
-    ;
     getElement(s) {
         if (s === this.name) {
             return this;

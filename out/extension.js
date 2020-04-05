@@ -1,13 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/*
- * @Author: your name
- * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-03-29 16:49:21
- * @LastEditors: your name
- * @Description: In User Settings Edit
- * @FilePath: \DevUIHelper\src\extension.ts
- */
 const vscode = require("vscode");
 function activate(context) {
     // 悬浮提示api

@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-03-29 16:49:21
- * @LastEditors: your name
- * @Description: In User Settings Edit
- * @FilePath: \DevUIHelper\src\extension.ts
- */
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
