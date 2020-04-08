@@ -105,7 +105,7 @@ export class CParams{
                 }
                 if(_element){
                     _element.addAttritube(new Attribute(
-                        parts[0].toLocaleLowerCase(),
+                        parts[0],
                         parts[1],
                         parts[2],
                         parts[3],
