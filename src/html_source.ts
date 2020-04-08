@@ -1,13 +1,6 @@
-/*
- * @Author: your name
- * @Date: 2020-04-03 16:00:53
- * @LastEditTime: 2020-04-08 15:46:58
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \DevUIHelper\src\html_source.ts
- */
+
 export const HTML_SCHEMA=[
-    "accordion||这是一个accordion组件",
+"accordion||这是一个accordion组件",
 "data||Array<any>或AccordionMenuType||null||数据源||必选，数据源，可以自定义数组或者使用预设的AccordionMenuType||true||false||[]",
 "titleKey||string||title||标题的属性名||可选，标题的属性名，item[titleKey]类型为string，为标题显示内容||false||false||[]",
 "loadingKey||string||loading||子菜单是否加载中的判断属性名||可选，子菜单是否加载中的判断属性名，item[loadingKey]类型为boolean||false||false||[]",
@@ -744,7 +737,4 @@ export const HTML_SCHEMA=[
 "successEvent||EventEmitter<any>||null||返回文件及xhr的响应信息||上传成功时的回调函数,返回文件及xhr的响应信息||false||true||[]",
 "errorEvent||EventEmitter<any>||null||返回上传失败的错误信息||上传错误时的回调函数，返回上传失败的错误信息||false||true||[]",
 "deleteUploadedFileEvent||EventEmitter<any>||null||返回删除文件的路径信息||删除上传文件的回调函数，返回删除文件的路径信息||false||true||[]",
-
-
-    
-]
+];

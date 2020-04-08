@@ -10,7 +10,6 @@ const completionTriggerChars = [" ", "\n"];
 const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
 // 是否匹配到了"",而不是""和空格或者""和>
 const attributeValue = /^=\"[\s\S]*\"(?! |(>)\1)/;
-// const attributeValue= /^=\"[\s\S]*\"(?! )/;
 function provideCompletionItems(document, position) {
     var _a;
     const start = new vscode_1.Position(0, 0);
@@ -19,7 +18,6 @@ function provideCompletionItems(document, position) {
     // 不匹配import方式引入,因为使用devui的时候这两个不在一个文件当中
     // const importRegex = /import[\s\S]*from\s'@angular\/core'/g;
     if (componentRegex.test(text)) {
-        // console.log(text);
         const elementName = util_1.getName(text, componentRegex);
         const element = html_info_1.htmlSource.findElement(elementName);
         if (element) {
@@ -62,7 +60,7 @@ function checkCursorInValue(document, position) {
     const tmp = line.text;
     // let tmp:string  = document.getText(document.getWordRangeAtPosition(position));
     const attrWord = tmp.substring(tmp.indexOf("="));
-    console.log("===" + attrWord + "===" + attributeValue.test(attrWord));
+    // console.log("==="+attrWord+"==="+attributeValue.test(attrWord));
     return attributeValue.test(attrWord);
 }
 function getCurrentAttr(document, position) {

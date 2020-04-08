@@ -1,13 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/*
- * @Author: your name
- * @Date: 2020-04-03 16:00:53
- * @LastEditTime: 2020-04-08 15:46:58
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \DevUIHelper\src\html_source.ts
- */
 exports.HTML_SCHEMA = [
     "accordion||这是一个accordion组件",
     "data||Array<any>或AccordionMenuType||null||数据源||必选，数据源，可以自定义数组或者使用预设的AccordionMenuType||true||false||[]",
