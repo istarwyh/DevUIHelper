@@ -8,7 +8,8 @@ const completionTriggerChars = [" ", "\n"];
 //devui的使用以d-开头,如d-button.值得一提的是这个在正则表达式的测试中是null.
 const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
 // 是否匹配到了"",而不是""和空格或者""和>
-const attributeValue= /^=\"[\s\S]*\"(?! )|^=\"[\s\S]*\"(?!\>)/;
+const attributeValue= /^=\"[\s\S]*\"(?! |(>)\1)/;
+// const attributeValue= /^=\"[\s\S]*\"(?! )/;
 
 
 function  provideCompletionItems(document: TextDocument, position: Position): CompletionItem[] {
@@ -102,7 +103,6 @@ function createAttritubeCompletionItems(prop:Attribute):CompletionItem{
     const TITLE = new MarkdownString(""); 
     completionItem.documentation = TITLE.appendCodeblock("Description:"+ prop.getSortDescription()+"\nType:"+prop.getValueType()+"\nDefaultValue:"+prop.getDefaultValue(),'typescript');
     
-    // console.log("true");
     /**
      * 依据不同的类型提供不同的提示。
      */

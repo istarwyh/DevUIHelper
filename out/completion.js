@@ -6,10 +6,11 @@ const vscode_1 = require("vscode");
 const util_1 = require("./util");
 const html_info_1 = require("./html_info");
 const completionTriggerChars = [" ", "\n"];
-//devui的使用以d-开头,如d-button.值得一提的是这个在正则表达式的测试中是nu   ll.
+//devui的使用以d-开头,如d-button.值得一提的是这个在正则表达式的测试中是null.
 const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
-// TODO:不能稳定识别"
-const attributeValue = /^=\"[\s\S]*\"(?! )|^=\"[\s\S]*\"(?!\>)/;
+// 是否匹配到了"",而不是""和空格或者""和>
+const attributeValue = /^=\"[\s\S]*\"(?! |(>)\1)/;
+// const attributeValue= /^=\"[\s\S]*\"(?! )/;
 function provideCompletionItems(document, position) {
     var _a;
     const start = new vscode_1.Position(0, 0);
@@ -95,7 +96,6 @@ function createAttritubeCompletionItems(prop) {
     // params[prop]就是label对应的api细节部分
     const TITLE = new vscode_1.MarkdownString("");
     completionItem.documentation = TITLE.appendCodeblock("Description:" + prop.getSortDescription() + "\nType:" + prop.getValueType() + "\nDefaultValue:" + prop.getDefaultValue(), 'typescript');
-    // console.log("true");
     /**
      * 依据不同的类型提供不同的提示。
      */
