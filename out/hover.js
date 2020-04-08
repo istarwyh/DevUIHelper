@@ -17,6 +17,7 @@ function provideHover(document, position, token) {
     var _a;
     const word = document.getText(document.getWordRangeAtPosition(position));
     const element = html_info_1.htmlSource.findElement(util_1.word2Name(word));
+    // console.log("<>"+word2Name(word));
     const hoverContent = new vscode_1.MarkdownString("", true);
     /**
      * 元素提示

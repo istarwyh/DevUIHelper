@@ -17,6 +17,7 @@ function provideHover(document:TextDocument,
     position:Position, token:CancellationToken):ProviderResult<Hover> {
     const word = document.getText(document.getWordRangeAtPosition(position));
     const element = htmlSource.findElement(word2Name(word));
+    // console.log("<>"+word2Name(word));
     const hoverContent= new MarkdownString("",true);
     /**
      * 元素提示

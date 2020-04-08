@@ -32,9 +32,7 @@ function provideCompletionItems(document, position) {
             }
             if (checkCursorInValue(document, position)) {
                 const attr = document.getText(document.getWordRangeAtPosition(position));
-                // console.log(attr);
                 const attribute = (_a = element) === null || _a === void 0 ? void 0 : _a.getAttribute(attr);
-                // console.log(attribute);
                 return attribute.getValueSet().map(word => {
                     return new vscode_1.CompletionItem(word, vscode_1.CompletionItemKind.Variable);
                 });

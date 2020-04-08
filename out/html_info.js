@@ -34,11 +34,6 @@ class Element {
         this.attritubes = attritubes;
         this.attributeMap = {};
     }
-    getElement(s) {
-        if (s === this.name) {
-            return this;
-        }
-    }
     addAttritube(attribute) {
         this.attritubes.push(attribute);
         this.attributeMap[attribute.getName()] = attribute;
@@ -46,17 +41,22 @@ class Element {
     setDescription(description) {
         this.description = description;
     }
+    getElement(s) {
+        if (s === this.name) {
+            return this;
+        }
+    }
     getName() {
         return this.name;
     }
     getAttributes() {
         return this.attritubes;
     }
-    getDescription() {
-        return this.description;
-    }
     getAttribute(attrname) {
         return this.attributeMap[attrname];
+    }
+    getDescription() {
+        return this.description;
     }
     getcompletionKind() { return vscode_1.CompletionItemKind.Class; }
 }

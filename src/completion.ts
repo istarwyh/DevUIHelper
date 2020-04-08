@@ -25,7 +25,7 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
         if (element) {
             const properties = element.getAttributes();
             if(!checkCursorInValue(document,position)){          
-            // 回调函数循环将prop对应的details提取出来
+                // 回调函数循环将prop对应的details提取出来
                 const completionItems = properties.map((prop) => {
                     const completionItem = createAttritubeCompletionItems(prop);
                     return completionItem;
@@ -34,9 +34,7 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
             }
             if(checkCursorInValue(document,position)){
                 const attr = document.getText(document.getWordRangeAtPosition(position));
-                // console.log(attr);
                 const attribute = element?.getAttribute(attr);
-                // console.log(attribute);
                 return attribute.getValueSet().map(word=>{
                     return new CompletionItem(word,CompletionItemKind.Variable);
                 });

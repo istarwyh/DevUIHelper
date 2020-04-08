@@ -49,11 +49,6 @@ export class Element implements Node {
         private description:string = "",
         private attritubes:Attribute[]=[],
         ){}
-    getElement(s:string):Element|undefined{
-        if(s=== this.name){
-            return this;
-        }
-    }
     addAttritube(attribute:Attribute){
         this.attritubes.push(attribute);
         this.attributeMap[attribute.getName()]=attribute;
@@ -61,17 +56,22 @@ export class Element implements Node {
     setDescription(description:string){
         this.description = description;
     }
+    getElement(s:string):Element|undefined{
+        if(s=== this.name){
+            return this;
+        }
+    }
     getName(){
         return this.name;
     }
     getAttributes(){
         return this.attritubes;
     }
-    getDescription(){
-        return this.description;
-    }
     getAttribute(attrname:string):Attribute{  
         return this.attributeMap[attrname];
+    }
+    getDescription(){
+        return this.description;
     }
     getcompletionKind(){ return CompletionItemKind.Class;}
     
