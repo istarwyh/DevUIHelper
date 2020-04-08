@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-27 19:34:32
+ * @LastEditTime: 2020-04-08 17:16:46
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \DevUIHelper\README.md
+ -->
 # [DevUIHelper](https://github.com/istarwyh/DevUIHelper)
 ## 针对[devui组件库](https://devui.design/components/get-start)的vs code 扩展
 - 支持对devui组件的属性，属性说明，属性类型，默认值的自动提示(与补全)
@@ -7,7 +15,7 @@
     - `alt+[`/`]`=>移动到文件首/尾
 
 ### 演示如下:
-![DevUIHelper演示](https://gitee.com/istarwyh/images/raw/master/1585274191_20200327095616237_17548.gif)
+![DevUIHelper演示](./demo.gif)
 
 ## Structure
 

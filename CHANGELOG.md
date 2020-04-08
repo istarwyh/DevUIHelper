@@ -1,12 +1,19 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-03-30 18:20:55
+ * @LastEditTime: 2020-04-08 17:21:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \DevUIHelper\CHANGELOG.md
  -->
-# Change Log
+
+# V2.3.0
+
+- 为自动补全提供了新的外观！ 现在你会发现不同类型的补全拥有其特色的提示图标！
+- 现在我们为属性提供了补全服务，并且让它能够正确的停在两个引号之间
+- 修复了多次换行导致补全与悬浮提示失效的问题
+- 修复了多个空格引发的补全不稳定问题
+- 修复了标签d-column不存在的问题
 
 # V2.1.0
 
