@@ -9,18 +9,8 @@
 import {CompletionItemKind}from 'vscode';
 export function getName(text: string,componentRegex: RegExp){
     text.match(componentRegex);
-    const n = RegExp.$1.substring(2);
-    // const nam = n.replace(n[0],n[0].toUpperCase());//匹配之后对字符串处理然后匹配导出的模块
-    const nam = n;//匹配之后对字符串处理然后匹配导出的模块
-    let name: string;
-    if (nam.indexOf("-") !== -1){
-        name = capitalize(nam);
-    }else{
-        name = nam;
-    }
-    // console.log("name: " + name);
+    const name = RegExp.$1.substring(2);
     return name;
-
 }
 export function getAttrName(text:string):string|undefined{
     if(text.startsWith("[")){
@@ -34,14 +24,7 @@ export function getAttrName(text:string):string|undefined{
     }
 }
 export function word2Name(word: string){
-    const n  = word.substring(2);
-    const nam = n.replace(n[0],n[0].toUpperCase());//匹配之后对字符串处理然后匹配导出的模块
-    let name: string;
-    if (nam.indexOf("-") !== -1){
-        name = capitalize(nam);
-    }else{
-        name = nam;
-    }
+    const name  = word.substring(2);
     return name;
 }
 function capitalize(string: string){

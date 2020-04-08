@@ -9,7 +9,6 @@ const completionTriggerChars = [" ", "\n"];
 const componentRegex = /<(d-[a-zA-Z0-9-]*)\b[^<>]*$/g;
 // 是否匹配到了"",而不是""和空格或者""和>
 const attributeValue= /^=\"[\s\S]*\"(?! |(>)\1)/;
-// const attributeValue= /^=\"[\s\S]*\"(?! )/;
 
 
 function  provideCompletionItems(document: TextDocument, position: Position): CompletionItem[] {
@@ -20,7 +19,6 @@ function  provideCompletionItems(document: TextDocument, position: Position): Co
     // const importRegex = /import[\s\S]*from\s'@angular\/core'/g;
 
     if (componentRegex.test(text)) { 
-        // console.log(text);
         const elementName = getName(text,componentRegex);
         const element = htmlSource.findElement(elementName);
 
@@ -65,7 +63,7 @@ function checkCursorInValue(document:TextDocument,position : Position):boolean{
     const tmp = line.text;
     // let tmp:string  = document.getText(document.getWordRangeAtPosition(position));
     const attrWord = tmp.substring(tmp.indexOf("="));
-    console.log("==="+attrWord+"==="+attributeValue.test(attrWord));
+    // console.log("==="+attrWord+"==="+attributeValue.test(attrWord));
     return attributeValue.test(attrWord);
 }
 function getCurrentAttr(document:TextDocument,position:Position):string{
