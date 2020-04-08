@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-27 19:34:32
- * @LastEditTime: 2020-04-08 17:16:46
- * @LastEditors: your name
+ * @LastEditTime: 2020-04-08 18:16:17
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \DevUIHelper\README.md
  -->
@@ -15,7 +15,7 @@
     - `alt+[`/`]`=>移动到文件首/尾
 
 ### 演示如下:
-![DevUIHelper演示](./demo.gif)
+![DevUIHelper演示](https://github.com/istarwyh/DevUIHelper/blob/master/demo.gif)
 
 ## Structure
 
