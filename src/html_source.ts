@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-04-03 16:00:53
- * @LastEditTime: 2020-04-03 16:19:03
+ * @LastEditTime: 2020-04-08 15:46:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \DevUIHelper\src\html_source.ts
@@ -154,6 +154,7 @@ export const HTML_SCHEMA=[
 "allChildrenTableClose||EventEmitter<any>||null||全部子列表关闭事件||全部子列表关闭事件||false||true||[]",
 "cancelEditingStatus||--||null||取消正在编辑单元格的编辑状态||取消正在编辑单元格的编辑状态||false||false||[]",
 "getCheckedRows||--||null||获取当前选中的行数据||获取当前选中的行数据||false||false||[]",
+"column||这是一个data-column组件",
 "editable||boolean||false||在d-column上指定该列是否可编辑||可选，在d-column上指定该列是否可编辑||false||false||[]",
 "tableLevel||number||0||在树形表格场景下自增长||可选，当前表格层级,在树形表格场景下自增长||false||false||[]",
 "fieldType||string||text||将废弃||可选，将废弃，单元格类型，支持text、select、treeSelect、input-number、datapicker、customized||false||false||[]",
