@@ -28,6 +28,7 @@
 
 ## Running the Sample
 
+- Use Node.js 20.19+ or 22.12+ for development and tests.
 - Run `npm install` in this folder. This installs all necessary npm modules.
 - Open VS Code on this folder.
 - Switch to the Debug viewlet.

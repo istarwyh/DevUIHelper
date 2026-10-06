@@ -8,8 +8,14 @@ import * as vscode from 'vscode';
 suite('Extension Test Suite', () => {
 	vscode.window.showInformationMessage('Start all tests.');
 
-	test('Sample test', () => {
-		assert.equal(-1, [1, 2, 3].indexOf(5));
-		assert.equal(-1, [1, 2, 3].indexOf(0));
+	test('Extension activates and registers its editor commands', async () => {
+		const extension = vscode.extensions.getExtension('sspkuDevUI.devuihelper');
+		assert.ok(extension, 'Development extension must be installed');
+		await extension!.activate();
+		assert.ok(extension!.isActive);
+		const commands = await vscode.commands.getCommands(true);
+		for (const command of ['extension.getCurrentFilePath', 'extension.moveBeginning', 'extension.moveEnding']) {
+			assert.ok(commands.includes(command), `Missing command: ${command}`);
+		}
 	});
 });
